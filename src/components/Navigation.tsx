@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
@@ -15,11 +15,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "#about", icon: User, color: "text-accent-blue" },
+    { name: "Skills", href: "#skills", icon: Brain, color: "text-accent-purple" },
+    { name: "Education", href: "#education", icon: GraduationCap, color: "text-accent-emerald" },
+    { name: "Experience", href: "#experience", icon: Briefcase, color: "text-accent-cyan" },
+    { name: "Projects", href: "#projects", icon: Folder, color: "text-accent-orange" },
+    { name: "Contact", href: "#contact", icon: Mail, color: "text-accent-pink" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -39,22 +40,26 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center animate-glow">
-              <span className="text-lg font-bold text-primary-foreground">MV</span>
+              <span className="text-lg font-bold text-primary-foreground">🦁</span>
             </div>
             <span className="text-xl font-bold text-gradient">Maanas Varma</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="nav-link text-sm font-medium"
-              >
-                {item.name}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="nav-link text-sm font-medium flex items-center space-x-2 group hover:scale-105 transition-all duration-300"
+                >
+                  <Icon className={`w-4 h-4 ${item.color} group-hover:animate-pulse`} />
+                  <span>{item.name}</span>
+                </button>
+              );
+            })}
             <Button
               onClick={() => window.open("https://example.com/resume.pdf", "_blank")}
               className="btn-primary px-4 py-2 rounded-lg"
@@ -79,15 +84,19 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-card-border shadow-lg">
             <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left nav-link text-base font-medium py-2"
-                >
-                  {item.name}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="flex items-center space-x-3 w-full text-left nav-link text-base font-medium py-2 hover:scale-105 transition-all duration-300"
+                  >
+                    <Icon className={`w-5 h-5 ${item.color}`} />
+                    <span>{item.name}</span>
+                  </button>
+                );
+              })}
               <Button
                 onClick={() => window.open("https://example.com/resume.pdf", "_blank")}
                 className="btn-primary w-full mt-4"

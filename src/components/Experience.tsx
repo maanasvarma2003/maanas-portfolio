@@ -3,39 +3,39 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Experience = () => {
   const experience = {
-    title: "Senior Full Stack Developer",
-    company: "TechCorp Solutions",
+    title: "Data Scientist",
+    company: "DataTech Analytics",
     location: "Bangalore, India",
     period: "Jan 2023 - Present",
     type: "Full-time",
-    description: "Leading the development of scalable web applications and mentoring junior developers. Responsible for architecting and implementing complex features using modern technologies like React, Node.js, and cloud services.",
+    description: "Leading data science initiatives and developing machine learning models to drive business insights. Responsible for end-to-end data science projects from data collection to model deployment and monitoring.",
     achievements: [
-      "Led a team of 5 developers in delivering 3 major projects on time",
-      "Improved application performance by 40% through code optimization",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Mentored 8 junior developers and conducted technical interviews",
-      "Architected microservices architecture serving 100K+ users",
-      "Reduced bug reports by 50% through comprehensive testing strategies"
+      "Developed ML models that improved business efficiency by 35%",
+      "Built predictive analytics systems serving 50K+ daily predictions",
+      "Reduced model training time by 60% through pipeline optimization",
+      "Created automated reporting dashboards for executive decision making",
+      "Led data science team of 4 in delivering 8 major projects",
+      "Implemented A/B testing framework increasing conversion by 25%"
     ],
     technologies: [
-      "React", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker", 
-      "Kubernetes", "GraphQL", "Redis", "MongoDB", "Jest", "Cypress"
+      "Python", "R", "TensorFlow", "PyTorch", "Pandas", "NumPy", 
+      "Scikit-learn", "SQL", "MongoDB", "AWS", "Docker", "Jupyter"
     ],
     responsibilities: [
       {
         icon: Code2,
-        title: "Technical Leadership",
-        description: "Architecting scalable solutions and leading technical decisions"
+        title: "Model Development",
+        description: "Building and deploying machine learning models for business solutions"
       },
       {
         icon: Users,
-        title: "Team Management",
-        description: "Mentoring developers and coordinating cross-functional teams"
+        title: "Cross-functional Collaboration",
+        description: "Working with business teams to identify data-driven opportunities"
       },
       {
         icon: TrendingUp,
-        title: "Performance Optimization",
-        description: "Improving application performance and user experience"
+        title: "Analytics Leadership",
+        description: "Driving insights and recommendations from complex datasets"
       }
     ]
   };

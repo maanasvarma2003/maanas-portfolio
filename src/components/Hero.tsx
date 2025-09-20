@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [text, setText] = useState("");
-  const fullText = "Full Stack Developer & UI/UX Designer";
+  const fullText = "Data Scientist & AI/ML Engineer";
   
   useEffect(() => {
     let currentIndex = 0;
@@ -54,8 +54,8 @@ const Hero = () => {
 
           {/* Description */}
           <p className="animate-fade-in text-lg text-foreground-muted max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: "0.8s" }}>
-            Passionate about creating beautiful, functional, and user-centric digital experiences 
-            through innovative design and cutting-edge technology.
+            Passionate about extracting insights from data, building intelligent systems, and 
+            driving business decisions through advanced analytics and machine learning.
           </p>
 
           {/* Skills Icons */}

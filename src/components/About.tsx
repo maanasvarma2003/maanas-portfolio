@@ -4,12 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   const skills = [
-    { name: "React/Next.js", level: 95, icon: "⚛️" },
-    { name: "TypeScript", level: 90, icon: "📘" },
-    { name: "UI/UX Design", level: 85, icon: "🎨" },
-    { name: "Node.js", level: 80, icon: "🟢" },
-    { name: "Python", level: 88, icon: "🐍" },
-    { name: "3D Design", level: 75, icon: "🎭" },
+    { name: "Python", level: 95, icon: "🐍" },
+    { name: "Machine Learning", level: 90, icon: "🤖" },
+    { name: "Data Analysis", level: 95, icon: "📊" },
+    { name: "SQL", level: 85, icon: "🗃️" },
+    { name: "TensorFlow/PyTorch", level: 80, icon: "🧠" },
+    { name: "Statistical Modeling", level: 88, icon: "📈" },
   ];
 
   const highlights = [
@@ -51,15 +51,15 @@ const About = () => {
                 My Story
               </h3>
               <p className="text-foreground-secondary leading-relaxed mb-6">
-                I'm a passionate full-stack developer and UI/UX designer with a love for creating 
-                beautiful, functional, and user-centric digital experiences. With expertise spanning 
-                modern web technologies, design principles, and emerging technologies like 3D graphics, 
-                I bring ideas to life through code and creativity.
+                I'm a passionate data scientist and AI/ML engineer with expertise in extracting 
+                meaningful insights from complex datasets and building intelligent systems. With 
+                a strong foundation in statistics, machine learning, and data visualization, 
+                I transform raw data into actionable business intelligence.
               </p>
               <p className="text-foreground-secondary leading-relaxed mb-6">
-                My journey in tech started with curiosity and has evolved into a career focused on 
-                innovation, continuous learning, and making a positive impact through technology. 
-                I believe in the power of clean code, thoughtful design, and collaborative teamwork.
+                My journey in data science combines analytical thinking with technical expertise 
+                to solve real-world problems. I specialize in predictive modeling, deep learning, 
+                and creating data-driven solutions that drive business growth and innovation.
               </p>
               
               <Button 

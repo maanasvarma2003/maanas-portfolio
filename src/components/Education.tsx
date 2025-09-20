@@ -5,43 +5,43 @@ const Education = () => {
   const educationData = [
     {
       degree: "Bachelor of Technology in Computer Science",
-      institution: "Indian Institute of Technology (IIT)",
-      location: "Mumbai, India",
+      institution: "Visvesvaraya Technological University",
+      location: "Karnataka, India",
       period: "2020 - 2024",
-      gpa: "8.5/10.0",
-      description: "Specialized in Software Engineering, Data Structures, Algorithms, and Web Development. Active member of the coding club and hackathon participant.",
+      gpa: "8.7/10.0",
+      description: "Specialized in Data Science, Machine Learning, and Software Engineering. Focus on statistical analysis, algorithms, and AI technologies. Active member of the Data Science club.",
       achievements: [
         "Dean's List for Academic Excellence",
-        "Winner - Inter-College Hackathon 2023",
-        "President of Web Development Society"
+        "Winner - State Level Data Science Competition 2023",
+        "Published research paper on ML algorithms"
       ],
       color: "from-accent-blue to-accent-cyan"
     },
     {
-      degree: "Full Stack Web Development Certification",
-      institution: "freeCodeCamp",
-      location: "Online",
-      period: "2022 - 2023",
-      gpa: "Certificate of Completion",
-      description: "Comprehensive certification covering React, Node.js, MongoDB, and modern web development practices. Built 5+ full-stack projects.",
+      degree: "Higher Secondary Certificate (12th Grade)",
+      institution: "Sri Chaitanya Junior College",
+      location: "Bangalore, India",
+      period: "2018 - 2020",
+      gpa: "95.2%",
+      description: "Completed higher secondary education with focus on Mathematics, Physics, and Chemistry. Strong foundation in analytical thinking and problem-solving skills.",
       achievements: [
-        "300+ hours of hands-on coding",
-        "Built portfolio of 5 full-stack applications",
-        "Mastered responsive design principles"
+        "State Board Topper in Mathematics",
+        "Merit Certificate in Science Stream",
+        "Selected for National Mathematics Olympiad"
       ],
       color: "from-accent-purple to-accent-pink"
     },
     {
-      degree: "UI/UX Design Specialization",
-      institution: "Google UX Design Professional Certificate",
-      location: "Coursera",
-      period: "2021 - 2022",
-      gpa: "Professional Certificate",
-      description: "Learned user experience design process, from user research to wireframing, prototyping, and testing. Created a portfolio of UX case studies.",
+      degree: "Secondary School Certificate (10th Grade)",
+      institution: "DAV Public School",
+      location: "Bangalore, India",
+      period: "2017 - 2018",
+      gpa: "96.8%",
+      description: "Completed secondary education with distinction. Developed strong foundation in core subjects and critical thinking abilities.",
       achievements: [
-        "Completed 7 courses in UX design",
-        "Created 3 professional UX case studies",
-        "Learned industry-standard design tools"
+        "School Topper with 96.8% marks",
+        "Best Student Award in Science",
+        "Captain of School Debate Team"
       ],
       color: "from-accent-emerald to-accent-cyan"
     }
@@ -137,17 +137,17 @@ const Education = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 "Data Structures & Algorithms",
-                "Object-Oriented Programming",
-                "Database Management Systems",
-                "Computer Networks",
-                "Software Engineering",
+                "Statistics & Probability",
                 "Machine Learning",
-                "Web Development",
-                "Mobile App Development",
-                "UI/UX Design Principles",
-                "Human-Computer Interaction",
-                "Responsive Web Design",
-                "User Research Methods"
+                "Deep Learning",
+                "Data Mining",
+                "Statistical Analysis",
+                "Python Programming",
+                "Database Management",
+                "Linear Algebra",
+                "Calculus & Optimization",
+                "Data Visualization",
+                "Research Methodology"
               ].map((subject, index) => (
                 <div 
                   key={index}
