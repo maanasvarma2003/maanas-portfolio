@@ -1,5 +1,6 @@
-import { Github, Linkedin, Instagram, Mail, Heart, ArrowUp, Crown } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Heart, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import leoSymbol from "@/assets/leo-symbol.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,8 +40,12 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-xl flex items-center justify-center animate-glow shadow-2xl">
-                  <Crown className="w-7 h-7 text-primary-foreground animate-pulse" />
+                <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-xl flex items-center justify-center animate-glow shadow-2xl overflow-hidden">
+                  <img 
+                    src={leoSymbol} 
+                    alt="Leo Symbol" 
+                    className="w-8 h-8 object-contain filter brightness-0 invert animate-pulse"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 via-accent-pink/20 to-accent-purple/20 rounded-xl animate-pulse"></div>
                 </div>
                 <span className="text-2xl font-bold text-gradient">Maanas Varma</span>

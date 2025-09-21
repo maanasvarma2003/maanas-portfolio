@@ -43,53 +43,91 @@ const Education = () => {
         </div>
 
         {/* Train-themed Education Timeline */}
-        <div className="relative">
-          {/* Train Track */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Enhanced Train Track with Sleepers */}
           <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-emerald rounded-full shadow-lg"></div>
+          {/* Railway Sleepers */}
+          <div className="absolute left-6 top-0 bottom-0">
+            {[...Array(12)].map((_, i) => (
+              <div 
+                key={i}
+                className="absolute w-5 h-1 bg-gradient-to-r from-card-border to-foreground-muted rounded-full opacity-30"
+                style={{ 
+                  top: `${8 + i * 8}%`,
+                  left: '-10px',
+                  animationDelay: `${i * 0.1}s`
+                }}
+              />
+            ))}
+          </div>
           
-          <div className="space-y-12">
+          <div className="space-y-16">
             {educationData.map((edu, index) => (
               <div 
                 key={index}
-                className="relative flex items-center group"
-                style={{ animationDelay: `${index * 0.3}s` }}
+                className="relative flex items-center group animate-fade-in"
+                style={{ animationDelay: `${index * 0.4}s` }}
               >
-                {/* Train Station (Circle) */}
-                <div className={`absolute left-6 w-6 h-6 bg-gradient-to-r ${edu.color} rounded-full border-4 border-background shadow-xl z-10 group-hover:scale-125 transition-all duration-500`}>
-                  <div className="absolute inset-0 rounded-full animate-ping bg-gradient-to-r opacity-20"></div>
+                {/* Enhanced Train Station (Circle) with Steam Effect */}
+                <div className="relative left-6">
+                  <div className={`w-8 h-8 bg-gradient-to-r ${edu.color} rounded-full border-4 border-background shadow-xl z-10 group-hover:scale-150 transition-all duration-700 animate-pulse`}>
+                    <div className="absolute inset-0 rounded-full animate-ping bg-gradient-to-r opacity-30" style={{ animationDuration: '2s' }}></div>
+                  </div>
+                  {/* Steam effect */}
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+                    {[...Array(3)].map((_, i) => (
+                      <div 
+                        key={i}
+                        className="absolute w-1 h-1 bg-accent-cyan/40 rounded-full animate-bounce opacity-0 group-hover:opacity-100"
+                        style={{ 
+                          animationDelay: `${i * 0.2}s`,
+                          left: `${i * 2}px`,
+                          top: `-${i * 3}px`
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
                 
-                {/* Train Car (Education Card) */}
-                <Card className="ml-20 card-3d hover:scale-105 transition-all duration-500 overflow-hidden group-hover:shadow-2xl">
+                {/* Enhanced Train Car (Education Card) with 3D effects */}
+                <Card className="ml-16 card-3d hover:scale-105 transition-all duration-700 overflow-hidden group-hover:shadow-2xl transform hover:-translate-y-2">
                   <CardContent className="p-0">
                     <div className="flex">
-                      {/* Colorful Side Bar */}
-                      <div className={`w-2 bg-gradient-to-b ${edu.color} flex-shrink-0`}></div>
+                      {/* Enhanced Colorful Side Bar with pattern */}
+                      <div className={`w-3 bg-gradient-to-b ${edu.color} flex-shrink-0 relative overflow-hidden`}>
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent animate-pulse"></div>
+                      </div>
                       
-                      {/* Content */}
-                      <div className="flex-1 p-6">
-                        <div className="flex justify-between items-start mb-4">
+                      {/* Enhanced Content with floating elements */}
+                      <div className="flex-1 p-8 relative">
+                        <div className="flex justify-between items-start mb-6">
                           <div className="flex-1">
-                            <h3 className="text-xl font-bold text-gradient mb-2">
+                            <h3 className="text-2xl font-bold text-gradient mb-3 group-hover:scale-105 transition-transform duration-500">
                               {edu.degree}
                             </h3>
-                            <h4 className="text-lg font-semibold text-foreground-secondary mb-1">
+                            <h4 className="text-xl font-semibold text-foreground-secondary mb-2 group-hover:text-gradient transition-all duration-500">
                               {edu.institution}
                             </h4>
-                            <p className="text-sm text-accent-cyan font-medium">
+                            <p className="text-sm text-accent-cyan font-medium flex items-center">
+                              <span className="w-2 h-2 bg-accent-cyan rounded-full mr-2 animate-pulse"></span>
                               {edu.board}
                             </p>
                           </div>
                           
                           <div className="text-right">
-                            <div className="flex items-center text-foreground-muted text-sm mb-2">
-                              <Calendar className="w-4 h-4 mr-1" />
+                            <div className="flex items-center text-foreground-muted text-sm mb-3">
+                              <Calendar className="w-4 h-4 mr-2 animate-pulse" />
                               {edu.period}
                             </div>
-                            <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold text-primary-foreground bg-gradient-to-r ${edu.color}`}>
+                            <div className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-primary-foreground bg-gradient-to-r ${edu.color} shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110`}>
                               {edu.gpa}
                             </div>
                           </div>
+                        </div>
+                        
+                        {/* Floating achievement badge */}
+                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                          <div className={`w-4 h-4 bg-gradient-to-r ${edu.color} rounded-full animate-bounce`}></div>
                         </div>
                       </div>
                     </div>
@@ -97,6 +135,11 @@ const Education = () => {
                 </Card>
               </div>
             ))}
+          </div>
+          
+          {/* Train destination sign */}
+          <div className="absolute -bottom-8 left-4 bg-gradient-to-r from-accent-emerald to-accent-cyan px-4 py-2 rounded-lg shadow-lg">
+            <span className="text-primary-foreground font-bold text-sm">🎓 Destination: Success</span>
           </div>
         </div>
 

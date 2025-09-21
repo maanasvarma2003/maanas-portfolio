@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain, Crown } from "lucide-react";
+import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import leoSymbol from "@/assets/leo-symbol.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,8 +40,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-full flex items-center justify-center animate-pulse shadow-2xl">
-              <Crown className="w-7 h-7 text-primary-foreground animate-bounce" />
+            <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-full flex items-center justify-center animate-pulse shadow-2xl overflow-hidden">
+              <img 
+                src={leoSymbol} 
+                alt="Leo Symbol" 
+                className="w-8 h-8 object-contain filter brightness-0 invert animate-bounce"
+              />
               <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 via-accent-pink/20 to-accent-purple/20 rounded-full animate-pulse"></div>
             </div>
             <span className="text-xl font-bold text-gradient animate-pulse">Maanas Varma</span>

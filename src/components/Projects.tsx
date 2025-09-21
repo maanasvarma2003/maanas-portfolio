@@ -15,8 +15,7 @@ const Projects = () => {
       image: "🌐",
       technologies: ["React", "JavaScript", "CSS3", "HTML5", "Framer Motion"],
       features: ["Responsive Design", "Modern UI/UX", "Interactive Animations", "SEO Optimized"],
-      github: "https://github.com/maanas/hexapro-website",
-      live: "https://hexapro-technologies.com",
+      github: "https://github.com/maanasvarma2003/Hexapro-Technologies",
       date: "2024",
       status: "Featured"
     },
@@ -28,8 +27,7 @@ const Projects = () => {
       image: "📈",
       technologies: ["Python", "TensorFlow", "Pandas", "NumPy", "Alpha Vantage API"],
       features: ["ML Predictions", "Risk Management", "Real-time Analysis", "Automated Trading"],
-      github: "https://github.com/maanas/ai-trading-bot",
-      live: "https://trading-bot-demo.com",
+      github: "https://github.com/maanasvarma2003/AI-Trading-Bot",
       date: "2024",
       status: "Trending"
     },
@@ -41,8 +39,7 @@ const Projects = () => {
       image: "💬",
       technologies: ["Python", "OpenAI", "Streamlit", "PyPDF2", "Langchain"],
       features: ["PDF Analysis", "Natural Language Q&A", "Context Understanding", "Multi-document Support"],
-      github: "https://github.com/maanas/pdf-chatbot",
-      live: "https://pdf-chatbot-demo.com",
+      github: "https://github.com/maanasvarma2003/AI-pdf-chatbot",
       date: "2024",
       status: "New"
     },
@@ -54,8 +51,7 @@ const Projects = () => {
       image: "📊",
       technologies: ["Python", "Scikit-learn", "LSTM", "Matplotlib", "Yahoo Finance API"],
       features: ["Price Prediction", "Technical Analysis", "Sentiment Analysis", "Risk Assessment"],
-      github: "https://github.com/maanas/stock-predictor",
-      live: "https://stock-predictor.com",
+      github: "https://github.com/maanasvarma2003/stock-market-prediction",
       date: "2023",
       status: "Popular"
     },
@@ -67,8 +63,7 @@ const Projects = () => {
       image: "🗳️",
       technologies: ["Solidity", "Web3.js", "React", "Ethereum", "MetaMask"],
       features: ["Blockchain Security", "Transparent Voting", "Smart Contracts", "Voter Privacy"],
-      github: "https://github.com/maanas/blockchain-voting",
-      live: "https://secure-voting.com",
+      github: "https://github.com/maanasvarma2003/blockchain-based-voting-system",
       date: "2023",
       status: "Innovative"
     },
@@ -80,8 +75,7 @@ const Projects = () => {
       image: "🏦",
       technologies: ["Python", "Django", "React Native", "TensorFlow", "PostgreSQL"],
       features: ["AI Credit Scoring", "Risk Assessment", "Mobile App", "Rural Focus"],
-      github: "https://github.com/maanas/rural-lending",
-      live: "https://rural-loans.com",
+      github: "https://github.com/maanasvarma2003/AI-Loan-assistant",
       date: "2023",
       status: "Featured"
     },
@@ -93,8 +87,7 @@ const Projects = () => {
       image: "👥",
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       features: ["Employee Management", "Performance Analytics", "HR Dashboard", "Real-time Updates"],
-      github: "https://github.com/maanas/employee-catalog",
-      live: "https://employee-catalog.com",
+      github: "https://github.com/maanasvarma2003/team-app-haven",
       date: "2023",
       status: "Popular"
     }
@@ -227,23 +220,15 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex space-x-3 mt-auto">
+                  <div className="flex mt-auto">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => window.open(project.github, "_blank")}
-                      className="flex-1 hover:scale-105 transition-all duration-300"
+                      className="w-full hover:scale-105 transition-all duration-300"
                     >
                       <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button
-                      size="sm"
-                      onClick={() => window.open(project.live, "_blank")}
-                      className="flex-1 btn-primary hover:scale-105 transition-all duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live
+                      View Code
                     </Button>
                   </div>
                 </div>
@@ -262,7 +247,7 @@ const Projects = () => {
               Check out my GitHub profile for more projects, open source contributions, and code samples.
             </p>
             <Button 
-              onClick={() => window.open("https://github.com/maanas", "_blank")}
+              onClick={() => window.open("https://github.com/maanasvarma2003", "_blank")}
               className="btn-glow px-8 py-3"
             >
               <Github className="w-5 h-5 mr-2" />

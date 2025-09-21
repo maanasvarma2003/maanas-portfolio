@@ -73,7 +73,9 @@ const About = () => {
               <p className="text-foreground-secondary leading-relaxed mb-6">
                 My journey in data science combines analytical thinking with technical expertise 
                 to solve real-world problems. I specialize in predictive modeling, deep learning, 
-                and creating data-driven solutions that drive business growth and innovation.
+                and creating data-driven solutions that drive business growth and innovation. 
+                Beyond technology, I'm deeply interested in financial markets and stock trading, 
+                applying data science techniques to market analysis and algorithmic trading strategies.
               </p>
               
               <Button 
