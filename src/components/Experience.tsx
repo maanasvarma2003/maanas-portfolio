@@ -5,7 +5,7 @@ const Experience = () => {
   const experience = {
     title: "Frontend Developer Intern",
     company: "Hexapro Technologies",
-    location: "Remote",
+    location: "Bengaluru",
     period: "May 2024 - Jun 2024",
     type: "Internship",
     description: "Built and deployed responsive corporate website using modern frontend technologies. Collaborated with design and backend teams to deliver end-to-end company profile platform with focus on performance optimization.",
