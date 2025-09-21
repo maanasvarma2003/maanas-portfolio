@@ -17,21 +17,21 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "maanas.varma@email.com",
-      href: "mailto:maanas.varma@email.com",
+      value: "sh.maanasvarma@gmail.com",
+      href: "mailto:sh.maanasvarma@gmail.com",
       color: "text-accent-blue"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "+91 6362847181",
+      href: "tel:+916362847181",
       color: "text-accent-emerald"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Bangalore, India",
+      value: "Bengaluru, India",
       href: "https://maps.google.com/",
       color: "text-accent-orange"
     }
@@ -41,28 +41,28 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/maanas",
+      href: "https://github.com/maanasvarma2003",
       color: "hover:text-foreground",
       bg: "hover:bg-card-hover"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/maanas-varma",
+      href: "https://www.linkedin.com/in/maanas-varma-59429327b/",
       color: "hover:text-accent-blue",
       bg: "hover:bg-accent-blue/10"
     },
     {
       icon: Instagram,
       label: "Instagram",
-      href: "https://instagram.com/maanas.varma",
+      href: "https://www.instagram.com/maanas_varma/#",
       color: "hover:text-accent-pink",
       bg: "hover:bg-accent-pink/10"
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/919876543210",
+      href: "https://wa.me/916362847181",
       color: "hover:text-accent-emerald",
       bg: "hover:bg-accent-emerald/10"
     }
@@ -255,17 +255,17 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                onClick={() => window.open("mailto:maanas.varma@email.com", "_blank")}
+                onClick={() => window.open("mailto:sh.maanasvarma@gmail.com", "_blank")}
                 className="btn-primary px-8 py-3"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email Me
               </Button>
               <Button 
-                onClick={() => window.open("https://calendly.com/maanas", "_blank")}
+                onClick={() => window.open("https://wa.me/916362847181", "_blank")}
                 className="btn-ghost px-8 py-3"
               >
-                📅 Schedule a Call
+                📱 WhatsApp Me
               </Button>
             </div>
           </Card>

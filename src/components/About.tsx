@@ -1,6 +1,7 @@
 import { User, Download, Award, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import maanasPhoto from "@/assets/maanas.jpg";
 
 const About = () => {
   const skills = [
@@ -46,6 +47,19 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8">
+            {/* Profile Photo */}
+            <div className="flex justify-center lg:justify-start mb-8">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink rounded-full blur-lg opacity-75 group-hover:opacity-100 animate-pulse"></div>
+                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-gradient-primary shadow-2xl">
+                  <img 
+                    src={maanasPhoto} 
+                    alt="Maanas Varma - Data Scientist" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="card-floating p-8 rounded-xl">
               <h3 className="text-2xl font-bold text-gradient-secondary mb-4">
                 My Story
@@ -63,7 +77,7 @@ const About = () => {
               </p>
               
               <Button 
-                onClick={() => window.open("https://example.com/resume.pdf", "_blank")}
+                onClick={() => window.open("https://drive.google.com/file/d/1WpjG_1LbMhbsG-SOSXpNT-sj9-X6zSuO/view?usp=sharing", "_blank")}
                 className="btn-glow px-6 py-3 rounded-lg"
               >
                 <Download className="w-5 h-5 mr-2" />

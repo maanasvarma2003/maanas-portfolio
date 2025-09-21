@@ -3,39 +3,37 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Experience = () => {
   const experience = {
-    title: "Data Scientist",
-    company: "DataTech Analytics",
-    location: "Bangalore, India",
-    period: "Jan 2023 - Present",
-    type: "Full-time",
-    description: "Leading data science initiatives and developing machine learning models to drive business insights. Responsible for end-to-end data science projects from data collection to model deployment and monitoring.",
+    title: "Frontend Developer Intern",
+    company: "Hexapro Technologies",
+    location: "Remote",
+    period: "May 2024 - Jun 2024",
+    type: "Internship",
+    description: "Built and deployed responsive corporate website using modern frontend technologies. Collaborated with design and backend teams to deliver end-to-end company profile platform with focus on performance optimization.",
     achievements: [
-      "Developed ML models that improved business efficiency by 35%",
-      "Built predictive analytics systems serving 50K+ daily predictions",
-      "Reduced model training time by 60% through pipeline optimization",
-      "Created automated reporting dashboards for executive decision making",
-      "Led data science team of 4 in delivering 8 major projects",
-      "Implemented A/B testing framework increasing conversion by 25%"
+      "Built and deployed a responsive corporate website",
+      "Improved page load speed by 25% and reduced bundle size by 18%",
+      "Ensured 95% device compatibility across different platforms",
+      "Delivered end-to-end company profile platform",
+      "Collaborated effectively with design and backend teams"
     ],
     technologies: [
-      "Python", "R", "TensorFlow", "PyTorch", "Pandas", "NumPy", 
-      "Scikit-learn", "SQL", "MongoDB", "AWS", "Docker", "Jupyter"
+      "React.js", "HTML5", "CSS3", "Bootstrap", "JavaScript (ES6+)", "Git", "Responsive Design"
     ],
     responsibilities: [
       {
         icon: Code2,
-        title: "Model Development",
-        description: "Building and deploying machine learning models for business solutions"
+        title: "Frontend Development",
+        description: "Building responsive web applications using React.js and modern technologies"
       },
       {
         icon: Users,
-        title: "Cross-functional Collaboration",
-        description: "Working with business teams to identify data-driven opportunities"
+        title: "Team Collaboration",
+        description: "Working closely with design and backend teams for seamless integration"
       },
       {
         icon: TrendingUp,
-        title: "Analytics Leadership",
-        description: "Driving insights and recommendations from complex datasets"
+        title: "Performance Optimization",
+        description: "Improving website performance and ensuring cross-device compatibility"
       }
     ]
   };
@@ -150,16 +148,16 @@ const Experience = () => {
         {/* Additional Info Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-            <div className="text-4xl font-bold text-gradient mb-2">2+</div>
-            <div className="text-foreground-muted">Years of Experience</div>
+            <div className="text-4xl font-bold text-gradient mb-2">1</div>
+            <div className="text-foreground-muted">Month Experience</div>
           </Card>
           <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-            <div className="text-4xl font-bold text-gradient mb-2">15+</div>
-            <div className="text-foreground-muted">Projects Delivered</div>
+            <div className="text-4xl font-bold text-gradient mb-2">7+</div>
+            <div className="text-foreground-muted">Projects Completed</div>
           </Card>
           <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-            <div className="text-4xl font-bold text-gradient mb-2">8</div>
-            <div className="text-foreground-muted">Developers Mentored</div>
+            <div className="text-4xl font-bold text-gradient mb-2">25%</div>
+            <div className="text-foreground-muted">Performance Boost</div>
           </Card>
         </div>
       </div>

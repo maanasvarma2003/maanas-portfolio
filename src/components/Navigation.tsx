@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain } from "lucide-react";
+import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
@@ -39,10 +39,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center animate-glow">
-              <span className="text-lg font-bold text-primary-foreground">🦁</span>
+            <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-full flex items-center justify-center animate-pulse shadow-2xl">
+              <Crown className="w-7 h-7 text-primary-foreground animate-bounce" />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 via-accent-pink/20 to-accent-purple/20 rounded-full animate-pulse"></div>
             </div>
-            <span className="text-xl font-bold text-gradient">Maanas Varma</span>
+            <span className="text-xl font-bold text-gradient animate-pulse">Maanas Varma</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -61,7 +62,7 @@ const Navigation = () => {
               );
             })}
             <Button
-              onClick={() => window.open("https://example.com/resume.pdf", "_blank")}
+              onClick={() => window.open("https://drive.google.com/file/d/1WpjG_1LbMhbsG-SOSXpNT-sj9-X6zSuO/view?usp=sharing", "_blank")}
               className="btn-primary px-4 py-2 rounded-lg"
             >
               <Download className="w-4 h-4 mr-2" />
@@ -98,7 +99,7 @@ const Navigation = () => {
                 );
               })}
               <Button
-                onClick={() => window.open("https://example.com/resume.pdf", "_blank")}
+                onClick={() => window.open("https://drive.google.com/file/d/1WpjG_1LbMhbsG-SOSXpNT-sj9-X6zSuO/view?usp=sharing", "_blank")}
                 className="btn-primary w-full mt-4"
               >
                 <Download className="w-4 h-4 mr-2" />

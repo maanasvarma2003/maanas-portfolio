@@ -1,14 +1,14 @@
-import { Github, Linkedin, Instagram, Mail, Heart, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Heart, ArrowUp, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/maanas", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/maanas-varma", label: "LinkedIn" },
-    { icon: Instagram, href: "https://instagram.com/maanas.varma", label: "Instagram" },
-    { icon: Mail, href: "mailto:maanas.varma@email.com", label: "Email" }
+    { icon: Github, href: "https://github.com/maanasvarma2003", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/maanas-varma-59429327b/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/maanas_varma/#", label: "Instagram" },
+    { icon: Mail, href: "mailto:sh.maanasvarma@gmail.com", label: "Email" }
   ];
 
   const quickLinks = [
@@ -39,14 +39,15 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center animate-glow">
-                  <span className="text-xl font-bold text-primary-foreground">MV</span>
+                <div className="relative w-12 h-12 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-xl flex items-center justify-center animate-glow shadow-2xl">
+                  <Crown className="w-7 h-7 text-primary-foreground animate-pulse" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 via-accent-pink/20 to-accent-purple/20 rounded-xl animate-pulse"></div>
                 </div>
                 <span className="text-2xl font-bold text-gradient">Maanas Varma</span>
               </div>
               <p className="text-foreground-muted leading-relaxed mb-6 max-w-md">
-                Full Stack Developer & UI/UX Designer passionate about creating innovative 
-                digital experiences that make a difference. Always learning, always building.
+                Data Scientist passionate about creating innovative AI/ML solutions 
+                and transforming data into actionable insights that drive business growth.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -87,24 +88,24 @@ const Footer = () => {
                 <div>
                   <p className="text-foreground-muted text-sm mb-1">Email</p>
                   <a 
-                    href="mailto:maanas.varma@email.com"
+                    href="mailto:sh.maanasvarma@gmail.com"
                     className="text-foreground hover:text-accent-cyan transition-colors duration-300"
                   >
-                    maanas.varma@email.com
+                    sh.maanasvarma@gmail.com
                   </a>
                 </div>
                 <div>
                   <p className="text-foreground-muted text-sm mb-1">Phone</p>
                   <a 
-                    href="tel:+919876543210"
+                    href="tel:+916362847181"
                     className="text-foreground hover:text-accent-emerald transition-colors duration-300"
                   >
-                    +91 98765 43210
+                    +91 6362847181
                   </a>
                 </div>
                 <div>
                   <p className="text-foreground-muted text-sm mb-1">Location</p>
-                  <p className="text-foreground">Bangalore, India</p>
+                  <p className="text-foreground">Bengaluru, India</p>
                 </div>
               </div>
             </div>
