@@ -139,11 +139,11 @@ const About = () => {
             {/* Fun Stats */}
             <div className="grid grid-cols-2 gap-4">
               <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">50+</div>
+                <div className="text-3xl font-bold text-gradient mb-2">7+</div>
                 <div className="text-foreground-muted text-sm">Projects Completed</div>
               </Card>
               <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">3+</div>
+                <div className="text-3xl font-bold text-gradient mb-2">1+</div>
                 <div className="text-foreground-muted text-sm">Years Experience</div>
               </Card>
               <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
