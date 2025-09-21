@@ -16,7 +16,7 @@ const Projects = () => {
       technologies: ["React", "JavaScript", "CSS3", "HTML5", "Framer Motion"],
       features: ["Responsive Design", "Modern UI/UX", "Interactive Animations", "SEO Optimized"],
       github: "https://github.com/maanasvarma2003/Hexapro-Technologies",
-      date: "2024",
+      date: "2023",
       status: "Featured"
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       technologies: ["Python", "TensorFlow", "Pandas", "NumPy", "Alpha Vantage API"],
       features: ["ML Predictions", "Risk Management", "Real-time Analysis", "Automated Trading"],
       github: "https://github.com/maanasvarma2003/AI-Trading-Bot",
-      date: "2024",
+      date: "2025",
       status: "Trending"
     },
     {
@@ -40,7 +40,7 @@ const Projects = () => {
       technologies: ["Python", "OpenAI", "Streamlit", "PyPDF2", "Langchain"],
       features: ["PDF Analysis", "Natural Language Q&A", "Context Understanding", "Multi-document Support"],
       github: "https://github.com/maanasvarma2003/AI-pdf-chatbot",
-      date: "2024",
+      date: "2025",
       status: "New"
     },
     {
@@ -52,7 +52,7 @@ const Projects = () => {
       technologies: ["Python", "Scikit-learn", "LSTM", "Matplotlib", "Yahoo Finance API"],
       features: ["Price Prediction", "Technical Analysis", "Sentiment Analysis", "Risk Assessment"],
       github: "https://github.com/maanasvarma2003/stock-market-prediction",
-      date: "2023",
+      date: "2025",
       status: "Popular"
     },
     {
@@ -64,7 +64,7 @@ const Projects = () => {
       technologies: ["Solidity", "Web3.js", "React", "Ethereum", "MetaMask"],
       features: ["Blockchain Security", "Transparent Voting", "Smart Contracts", "Voter Privacy"],
       github: "https://github.com/maanasvarma2003/blockchain-based-voting-system",
-      date: "2023",
+      date: "2025",
       status: "Innovative"
     },
     {
@@ -76,7 +76,7 @@ const Projects = () => {
       technologies: ["Python", "Django", "React Native", "TensorFlow", "PostgreSQL"],
       features: ["AI Credit Scoring", "Risk Assessment", "Mobile App", "Rural Focus"],
       github: "https://github.com/maanasvarma2003/AI-Loan-assistant",
-      date: "2023",
+      date: "2025",
       status: "Featured"
     },
     {
@@ -88,7 +88,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       features: ["Employee Management", "Performance Analytics", "HR Dashboard", "Real-time Updates"],
       github: "https://github.com/maanasvarma2003/team-app-haven",
-      date: "2023",
+      date: "2025",
       status: "Popular"
     }
   ];
