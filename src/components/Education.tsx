@@ -136,11 +136,6 @@ const Education = () => {
               </div>
             ))}
           </div>
-          
-          {/* Train destination sign */}
-          <div className="absolute -bottom-8 left-4 bg-gradient-to-r from-accent-emerald to-accent-cyan px-4 py-2 rounded-lg shadow-lg">
-            <span className="text-primary-foreground font-bold text-sm">🎓 Destination: Success</span>
-          </div>
         </div>
 
         {/* Skills Learned Section */}
