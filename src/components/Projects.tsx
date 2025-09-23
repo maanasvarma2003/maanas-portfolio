@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { Folder, ExternalLink, Github, Star, Calendar, Code } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ProjectCard3D } from "./3D/ProjectCard3D";
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
@@ -110,6 +111,17 @@ const Projects = () => {
     }
   };
 
+  const getProjectColor = (category: string): string => {
+    switch (category) {
+      case "Frontend": return "#8b5cf6";
+      case "AI/ML": return "#06b6d4";
+      case "Data Science": return "#3b82f6";
+      case "Blockchain": return "#ec4899";
+      case "Fullstack": return "#10b981";
+      default: return "#6366f1";
+    }
+  };
+
   return (
     <section id="projects" className="section-padding">
       <div className="container-width">
@@ -150,27 +162,40 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-0 h-full">
-                {/* Project Header */}
-                <div className="relative p-6 bg-gradient-to-br from-card to-card-hover">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="text-6xl mb-4">{project.image}</div>
-                    <div className={`px-3 py-1 rounded-full text-xs font-medium text-primary-foreground bg-gradient-to-r ${getStatusColor(project.status)}`}>
-                      {project.status}
-                    </div>
+                {/* Project Header with 3D Background */}
+                <div className="relative p-6 bg-gradient-to-br from-card to-card-hover overflow-hidden">
+                  {/* 3D visualization background */}
+                  <div className="absolute inset-0 opacity-30">
+                    <Suspense fallback={null}>
+                      <ProjectCard3D 
+                        title={project.title}
+                        tech={project.technologies}
+                        color={getProjectColor(project.category)}
+                      />
+                    </Suspense>
                   </div>
                   
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center text-foreground-muted text-xs">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {project.date}
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="text-6xl mb-4 animate-float">{project.image}</div>
+                      <div className={`px-3 py-1 rounded-full text-xs font-medium text-primary-foreground bg-gradient-to-r ${getStatusColor(project.status)} animate-glow`}>
+                        {project.status}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="text-accent-cyan text-sm font-medium mb-4">
-                    {project.category}
+                    
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-gradient transition-all duration-300">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center text-foreground-muted text-xs">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {project.date}
+                      </div>
+                    </div>
+                    
+                    <div className="text-accent-cyan text-sm font-medium mb-4">
+                      {project.category}
+                    </div>
                   </div>
                 </div>
 

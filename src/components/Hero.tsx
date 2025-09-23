@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { ArrowDown, Code, Palette, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HeroScene3D } from "./3D/HeroScene3D";
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -25,11 +26,20 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* 3D Background Scene */}
+      <Suspense fallback={null}>
+        <HeroScene3D />
+      </Suspense>
+      
+      {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-cyan/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }}></div>
+        
+        {/* Additional 3D-like gradient orbs */}
+        <div className="absolute top-32 right-20 w-40 h-40 bg-gradient-radial from-accent-pink/20 via-accent-orange/10 to-transparent rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 left-20 w-60 h-60 bg-gradient-radial from-accent-emerald/15 via-accent-cyan/8 to-transparent rounded-full animate-float" style={{ animationDelay: "3s" }}></div>
       </div>
 
       <div className="container-width section-padding text-center relative z-10">

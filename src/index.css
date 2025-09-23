@@ -46,6 +46,7 @@
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent-cyan)), hsl(var(--accent-emerald)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent-blue)) 50%, hsl(var(--accent-cyan)) 100%);
     --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background-secondary)) 100%);
+    --gradient-radial: radial-gradient(var(--tw-gradient-stops));
 
     /* Shadows */
     --shadow-sm: 0 2px 4px -1px hsl(var(--primary) / 0.1);
