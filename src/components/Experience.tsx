@@ -1,5 +1,7 @@
 import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Suspense } from "react";
+import { ExperienceScene3D } from "./3D/ExperienceScene3D";
 
 const Experience = () => {
   const experience = {
@@ -39,8 +41,15 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-background-secondary/50">
-      <div className="container-width">
+    <section id="experience" className="section-padding bg-background-secondary/50 relative overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <ExperienceScene3D />
+        </Suspense>
+      </div>
+      
+      <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <Briefcase className="w-8 h-8 text-accent-emerald mr-3" />

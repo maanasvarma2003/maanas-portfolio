@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Brain, Code, Database, BarChart3, Server, Wrench, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
+import { SkillsScene3D } from "./3D/SkillsScene3D";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("Programming Languages");
@@ -97,8 +99,15 @@ const Skills = () => {
   const currentSkills = skillCategories[activeCategory as keyof typeof skillCategories];
 
   return (
-    <section id="skills" className="section-padding bg-background-secondary/30">
-      <div className="container-width">
+    <section id="skills" className="section-padding bg-background-secondary/30 relative overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <SkillsScene3D />
+        </Suspense>
+      </div>
+      
+      <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <Brain className="w-8 h-8 text-accent-purple mr-3 animate-pulse" />

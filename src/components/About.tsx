@@ -2,6 +2,8 @@ import { User, Download, Award, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import maanasPhoto from "@/assets/maanas.jpg";
+import { Suspense } from "react";
+import { AboutScene3D } from "./3D/AboutScene3D";
 
 const About = () => {
   const skills = [
@@ -32,8 +34,15 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-background-secondary/50">
-      <div className="container-width">
+    <section id="about" className="section-padding bg-background-secondary/50 relative overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <AboutScene3D />
+        </Suspense>
+      </div>
+      
+      <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <User className="w-8 h-8 text-accent-blue mr-3" />
