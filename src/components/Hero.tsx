@@ -90,7 +90,7 @@ const Hero = () => {
               Explore My Work
             </Button>
             <Button 
-              onClick={() => window.open("https://drive.google.com/file/d/1WpjG_1LbMhbsG-SOSXpNT-sj9-X6zSuO/view?usp=sharing", "_blank")}
+              onClick={() => window.open("https://drive.google.com/file/d/1-XNJXdngTo9SJkx4L3BMgl8bOht5xQYi/view?usp=sharing", "_blank")}
               className="btn-ghost px-8 py-4 text-lg rounded-xl"
             >
               Download Resume

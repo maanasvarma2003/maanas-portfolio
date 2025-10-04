@@ -1,5 +1,7 @@
 import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Suspense } from "react";
+import { EducationScene3D } from "./3D/EducationScene3D";
 
 const Education = () => {
   const educationData = [
@@ -30,8 +32,11 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="section-padding">
-      <div className="container-width">
+    <section id="education" className="section-padding relative overflow-hidden">
+      <Suspense fallback={null}>
+        <EducationScene3D />
+      </Suspense>
+      <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <GraduationCap className="w-8 h-8 text-accent-purple mr-3" />

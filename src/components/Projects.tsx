@@ -3,13 +3,80 @@ import { Folder, ExternalLink, Github, Star, Calendar, Code } from "lucide-react
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ProjectCard3D } from "./3D/ProjectCard3D";
+import { ProjectsScene3D } from "./3D/ProjectsScene3D";
+
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  features: string[];
+  github: string;
+  live?: string;
+  date: string;
+  status: string;
+}
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
+      title: "Nubra Algo Trading App",
+      category: "Frontend",
+      description: "Advanced algorithmic trading platform with real-time market data, strategy backtesting, and automated trade execution capabilities.",
+      image: "📊",
+      technologies: ["React", "TypeScript", "TradingView", "WebSocket", "Chart.js"],
+      features: ["Real-time Trading", "Strategy Backtesting", "Market Analytics", "Automated Execution"],
+      github: "https://github.com/maanasvarma2003/algo-pilot-scribe",
+      live: "https://algo-pilot-scribe.vercel.app/",
+      date: "2025",
+      status: "Trending"
+    },
+    {
+      id: 2,
+      title: "AI Movie Recommendations",
+      category: "AI/ML",
+      description: "Intelligent movie recommendation system using collaborative filtering and content-based algorithms with personalized suggestions.",
+      image: "🎬",
+      technologies: ["Python", "Scikit-learn", "Pandas", "Flask", "React"],
+      features: ["Personalized Suggestions", "Content Analysis", "User Preferences", "Rating Prediction"],
+      github: "https://github.com/maanasvarma2003/AI-powered-movie-recommendations",
+      live: "https://ai-powered-movie-recommendations.vercel.app/",
+      date: "2025",
+      status: "Popular"
+    },
+    {
+      id: 3,
+      title: "AI Personal Finance Tracker",
+      category: "Full Stack",
+      description: "AI-powered finance management app with expense tracking, budget planning, and intelligent financial insights for better money management.",
+      image: "💰",
+      technologies: ["React", "Node.js", "MongoDB", "TensorFlow", "Chart.js"],
+      features: ["Expense Tracking", "Budget Planning", "AI Insights", "Financial Reports"],
+      github: "https://github.com/maanasvarma2003/AI-powered-finance-tracker",
+      live: "https://ai-powered-finance-tracker-beta.vercel.app/",
+      date: "2025",
+      status: "Featured"
+    },
+    {
+      id: 4,
+      title: "Workout Tracker App",
+      category: "Full Stack",
+      description: "Comprehensive fitness tracking platform with workout logging, progress monitoring, and personalized exercise recommendations.",
+      image: "💪",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
+      features: ["Workout Logging", "Progress Tracking", "Exercise Library", "Performance Analytics"],
+      github: "https://github.com/maanasvarma2003/workout_tracker",
+      live: "https://workout-tracker-nu-eight.vercel.app/",
+      date: "2025",
+      status: "New"
+    },
+    {
+      id: 5,
       title: "Hexapro Technologies Website",
       category: "Frontend",
       description: "Modern responsive website for Hexapro Technologies showcasing services, portfolio, and company information. Built with React and advanced animations.",
@@ -21,7 +88,7 @@ const Projects = () => {
       status: "Featured"
     },
     {
-      id: 2,
+      id: 6,
       title: "AI Trading Bot",
       category: "AI/ML",
       description: "Intelligent trading bot using machine learning algorithms for market analysis and automated trading decisions with risk management.",
@@ -33,7 +100,7 @@ const Projects = () => {
       status: "Trending"
     },
     {
-      id: 3,
+      id: 7,
       title: "AI PDF Chatbot",
       category: "AI/ML",
       description: "Intelligent chatbot that can analyze PDF documents and answer questions about their content using natural language processing.",
@@ -45,7 +112,7 @@ const Projects = () => {
       status: "New"
     },
     {
-      id: 4,
+      id: 8,
       title: "Stock Market Predictor",
       category: "Data Science",
       description: "Advanced stock price prediction system using machine learning models, technical indicators, and sentiment analysis.",
@@ -57,7 +124,7 @@ const Projects = () => {
       status: "Popular"
     },
     {
-      id: 5,
+      id: 9,
       title: "Blockchain Voting System",
       category: "Blockchain",
       description: "Secure and transparent voting platform built on blockchain technology ensuring immutability and voter privacy.",
@@ -69,7 +136,7 @@ const Projects = () => {
       status: "Innovative"
     },
     {
-      id: 6,
+      id: 10,
       title: "AI Rural Loan Lending App",
       category: "AI/ML",
       description: "AI-powered loan assessment platform for rural areas using alternative credit scoring and machine learning risk analysis.",
@@ -77,11 +144,12 @@ const Projects = () => {
       technologies: ["Python", "Django", "React Native", "TensorFlow", "PostgreSQL"],
       features: ["AI Credit Scoring", "Risk Assessment", "Mobile App", "Rural Focus"],
       github: "https://github.com/maanasvarma2003/AI-Loan-assistant",
+      live: "https://ai-loan-assistant.vercel.app/",
       date: "2025",
       status: "Featured"
     },
     {
-      id: 7,
+      id: 11,
       title: "Advanced Employee App Catalog",
       category: "Full Stack",
       description: "Comprehensive employee management system with advanced features for HR operations, performance tracking, and analytics.",
@@ -89,6 +157,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       features: ["Employee Management", "Performance Analytics", "HR Dashboard", "Real-time Updates"],
       github: "https://github.com/maanasvarma2003/team-app-haven",
+      live: "https://vercel.com/maanas-varma-s-hs-projects/algo-pilot-scribe",
       date: "2025",
       status: "Popular"
     }
@@ -123,8 +192,11 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding">
-      <div className="container-width">
+    <section id="projects" className="section-padding relative overflow-hidden">
+      <Suspense fallback={null}>
+        <ProjectsScene3D />
+      </Suspense>
+      <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <Folder className="w-8 h-8 text-accent-orange mr-3" />
@@ -245,16 +317,26 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex mt-auto">
+                  <div className="flex gap-2 mt-auto">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => window.open(project.github, "_blank")}
-                      className="w-full hover:scale-105 transition-all duration-300"
+                      className="flex-1 hover:scale-105 transition-all duration-300"
                     >
                       <Github className="w-4 h-4 mr-2" />
-                      View Code
+                      Code
                     </Button>
+                    {project.live && (
+                      <Button
+                        size="sm"
+                        onClick={() => window.open(project.live, "_blank")}
+                        className="flex-1 btn-primary hover:scale-105 transition-all duration-300"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardContent>
