@@ -1,49 +1,64 @@
-import { Canvas } from '@react-three/fiber';
-import { Float, Sphere } from '@react-three/drei';
 import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-const MessageBubble = ({ position, scale, color }: { position: [number, number, number], scale: number, color: string }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
+const MailEnvelope = ({ position }: { position: [number, number, number] }) => {
+  const groupRef = useRef<THREE.Group>(null!);
   
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.015;
+      groupRef.current.position.y += Math.sin(state.clock.elapsedTime * 1.5) * 0.002;
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.4} floatIntensity={0.6}>
-      <group position={position} scale={scale}>
-        <mesh ref={meshRef}>
-          <sphereGeometry args={[0.6, 32, 32]} />
-          <meshPhongMaterial color={color} transparent opacity={0.5} />
-        </mesh>
-        <mesh position={[-0.4, -0.4, 0]} rotation={[0, 0, Math.PI / 4]}>
-          <coneGeometry args={[0.2, 0.3, 4]} />
-          <meshPhongMaterial color={color} transparent opacity={0.5} />
+    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.8}>
+      <group ref={groupRef} position={position}>
+        <mesh>
+          <boxGeometry args={[0.8, 0.6, 0.1]} />
+          <meshPhongMaterial color="#ec4899" transparent opacity={0.7} />
         </mesh>
       </group>
     </Float>
   );
 };
 
-const NetworkNode = ({ position, color }: { position: [number, number, number], color: string }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
+const MessageBubble = ({ position }: { position: [number, number, number] }) => {
+  const meshRef = useRef<THREE.Mesh>(null!);
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.scale.setScalar(1 + Math.sin(state.clock.elapsedTime * 2) * 0.1);
+      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime) * 0.2;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.2}>
+    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
       <mesh ref={meshRef} position={position}>
-        <sphereGeometry args={[0.3, 16, 16]} />
-        <meshPhongMaterial color={color} transparent opacity={0.7} emissive={color} emissiveIntensity={0.3} />
+        <sphereGeometry args={[0.4, 32, 32]} />
+        <meshPhongMaterial color="#06b6d4" transparent opacity={0.6} />
+      </mesh>
+    </Float>
+  );
+};
+
+const ConnectNode = ({ position }: { position: [number, number, number] }) => {
+  const meshRef = useRef<THREE.Mesh>(null!);
+  
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.02;
+      meshRef.current.rotation.y += 0.02;
+    }
+  });
+
+  return (
+    <Float speed={1.8} rotationIntensity={0.8} floatIntensity={0.6}>
+      <mesh ref={meshRef} position={position}>
+        <octahedronGeometry args={[0.3]} />
+        <meshPhongMaterial color="#8b5cf6" transparent opacity={0.7} />
       </mesh>
     </Float>
   );
@@ -51,19 +66,26 @@ const NetworkNode = ({ position, color }: { position: [number, number, number], 
 
 export const ContactScene3D = () => {
   return (
-    <div className="absolute inset-0 opacity-15">
-      <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[5, 5, 5]} intensity={0.6} color="#ec4899" />
-        <pointLight position={[-5, -5, 5]} intensity={0.4} color="#06b6d4" />
-        
-        <MessageBubble position={[-2, 1, 0]} scale={1} color="#ec4899" />
-        <MessageBubble position={[2.5, -1, -1]} scale={0.8} color="#06b6d4" />
-        <NetworkNode position={[-3, -1, 0]} color="#8b5cf6" />
-        <NetworkNode position={[3, 1.5, -1]} color="#10b981" />
-        <MessageBubble position={[0, 2, -2]} scale={0.7} color="#f59e0b" />
-        <NetworkNode position={[0, -2, 1]} color="#3b82f6" />
-      </Canvas>
-    </div>
+    <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <pointLight position={[-5, 0, 0]} intensity={0.5} color="#ec4899" />
+      <pointLight position={[5, 0, 0]} intensity={0.5} color="#06b6d4" />
+      
+      <MailEnvelope position={[0, 1, 0]} />
+      <MailEnvelope position={[-3, -1, -1]} />
+      <MessageBubble position={[2, 2, -2]} />
+      <MessageBubble position={[-2, -2, 1]} />
+      <ConnectNode position={[3, -1, 0]} />
+      <ConnectNode position={[-1, 2, -1]} />
+      <ConnectNode position={[1, -1, 1]} />
+      
+      <OrbitControls 
+        enableZoom={false} 
+        enablePan={false}
+        autoRotate
+        autoRotateSpeed={0.5}
+      />
+    </Canvas>
   );
 };

@@ -33,9 +33,13 @@ const Education = () => {
 
   return (
     <section id="education" className="section-padding relative overflow-hidden">
-      <Suspense fallback={null}>
-        <EducationScene3D />
-      </Suspense>
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <EducationScene3D />
+        </Suspense>
+      </div>
+      
       <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">

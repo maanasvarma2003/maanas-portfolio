@@ -1,69 +1,102 @@
-import { Canvas } from '@react-three/fiber';
-import { Float, Box } from '@react-three/drei';
 import { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-const Book = ({ position, color }: { position: [number, number, number], color: string }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
-    }
-  });
-
-  return (
-    <Float speed={2} rotationIntensity={0.4} floatIntensity={0.6}>
-      <mesh ref={meshRef} position={position}>
-        <boxGeometry args={[0.8, 1.2, 0.2]} />
-        <meshPhongMaterial color={color} transparent opacity={0.5} />
-      </mesh>
-    </Float>
-  );
-};
-
 const GraduationCap = ({ position }: { position: [number, number, number] }) => {
-  const groupRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null!);
   
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.4;
-      groupRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 0.2;
+      groupRef.current.rotation.y += 0.01;
+      groupRef.current.position.y += Math.sin(state.clock.elapsedTime * 1.5) * 0.003;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.3}>
+    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.8}>
       <group ref={groupRef} position={position}>
+        {/* Cap top */}
         <mesh position={[0, 0.2, 0]}>
-          <coneGeometry args={[0.8, 0.3, 4]} />
-          <meshPhongMaterial color="#8b5cf6" transparent opacity={0.6} />
+          <boxGeometry args={[0.8, 0.1, 0.8]} />
+          <meshPhongMaterial color="#10b981" transparent opacity={0.8} />
         </mesh>
+        {/* Cap base */}
         <mesh position={[0, 0, 0]}>
-          <cylinderGeometry args={[0.6, 0.6, 0.2, 32]} />
-          <meshPhongMaterial color="#06b6d4" transparent opacity={0.5} />
+          <coneGeometry args={[0.5, 0.3, 4]} />
+          <meshPhongMaterial color="#06b6d4" transparent opacity={0.7} />
         </mesh>
       </group>
     </Float>
   );
 };
 
+const BookStack = ({ position }: { position: [number, number, number] }) => {
+  const groupRef = useRef<THREE.Group>(null!);
+  
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.015;
+    }
+  });
+
+  return (
+    <Float speed={1.8} rotationIntensity={0.8} floatIntensity={0.6}>
+      <group ref={groupRef} position={position}>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.5, 0.15, 0.7]} />
+          <meshPhongMaterial color="#8b5cf6" transparent opacity={0.7} />
+        </mesh>
+        <mesh position={[0, 0.2, 0]}>
+          <boxGeometry args={[0.5, 0.15, 0.7]} />
+          <meshPhongMaterial color="#ec4899" transparent opacity={0.7} />
+        </mesh>
+      </group>
+    </Float>
+  );
+};
+
+const SchoolBuilding = ({ position }: { position: [number, number, number] }) => {
+  const meshRef = useRef<THREE.Mesh>(null!);
+  
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += 0.01;
+      meshRef.current.rotation.z += 0.01;
+    }
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
+      <mesh ref={meshRef} position={position}>
+        <octahedronGeometry args={[0.4]} />
+        <meshPhongMaterial color="#f59e0b" transparent opacity={0.6} />
+      </mesh>
+    </Float>
+  );
+};
+
 export const EducationScene3D = () => {
   return (
-    <div className="absolute inset-0 opacity-15">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-        <ambientLight intensity={0.3} />
-        <pointLight position={[5, 5, 5]} intensity={0.5} color="#8b5cf6" />
-        <pointLight position={[-5, -5, 5]} intensity={0.3} color="#ec4899" />
-        
-        <Book position={[-2, 1, 0]} color="#3b82f6" />
-        <Book position={[2, -1, -1]} color="#10b981" />
-        <Book position={[-3, -2, 0]} color="#ec4899" />
-        <GraduationCap position={[0, 0, -1]} />
-        <Book position={[3, 1.5, -1]} color="#f59e0b" />
-      </Canvas>
-    </div>
+    <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <pointLight position={[-5, 0, 0]} intensity={0.5} color="#10b981" />
+      <pointLight position={[5, 0, 0]} intensity={0.5} color="#8b5cf6" />
+      
+      <GraduationCap position={[0, 1, 0]} />
+      <GraduationCap position={[-3, -1, -1]} />
+      <BookStack position={[2, 0, 1]} />
+      <BookStack position={[-2, 2, -2]} />
+      <SchoolBuilding position={[3, -1, 0]} />
+      <SchoolBuilding position={[-1, -2, 1]} />
+      
+      <OrbitControls 
+        enableZoom={false} 
+        enablePan={false}
+        autoRotate
+        autoRotateSpeed={0.4}
+      />
+    </Canvas>
   );
 };

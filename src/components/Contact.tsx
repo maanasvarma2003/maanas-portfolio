@@ -1,9 +1,10 @@
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Suspense } from "react";
 import { ContactScene3D } from "./3D/ContactScene3D";
 
 const Contact = () => {
@@ -86,9 +87,13 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-background-secondary/50 relative overflow-hidden">
-      <Suspense fallback={null}>
-        <ContactScene3D />
-      </Suspense>
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <ContactScene3D />
+        </Suspense>
+      </div>
+      
       <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">

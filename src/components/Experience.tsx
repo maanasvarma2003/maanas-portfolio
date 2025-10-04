@@ -42,9 +42,13 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section-padding bg-background-secondary/50 relative overflow-hidden">
-      <Suspense fallback={null}>
-        <ExperienceScene3D />
-      </Suspense>
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <ExperienceScene3D />
+        </Suspense>
+      </div>
+      
       <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">

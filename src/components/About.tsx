@@ -35,9 +35,13 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding bg-background-secondary/50 relative overflow-hidden">
-      <Suspense fallback={null}>
-        <AboutScene3D />
-      </Suspense>
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Suspense fallback={null}>
+          <AboutScene3D />
+        </Suspense>
+      </div>
+      
       <div className="container-width relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
