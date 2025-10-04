@@ -4,8 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Suspense } from "react";
-import { ContactScene3D } from "./3D/ContactScene3D";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -86,15 +84,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-background-secondary/50 relative overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <Suspense fallback={null}>
-          <ContactScene3D />
-        </Suspense>
-      </div>
-      
-      <div className="container-width relative z-10">
+    <section id="contact" className="section-padding bg-background-secondary/50">
+      <div className="container-width">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <Mail className="w-8 h-8 text-accent-pink mr-3" />
