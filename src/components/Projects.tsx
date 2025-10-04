@@ -22,6 +22,58 @@ const Projects = () => {
     },
     {
       id: 2,
+      title: "Nubra Algo Trading App",
+      category: "Frontend",
+      description: "Advanced algorithmic trading application with real-time market data visualization and automated trading strategies.",
+      image: "📊",
+      technologies: ["React", "TypeScript", "TailwindCSS", "Chart.js", "WebSocket"],
+      features: ["Real-time Data", "Algo Trading", "Market Analysis", "Portfolio Management"],
+      github: "https://github.com/maanasvarma2003/algo-pilot-scribe",
+      live: "https://algo-pilot-scribe.vercel.app/",
+      date: "2025",
+      status: "Featured"
+    },
+    {
+      id: 3,
+      title: "AI Movie Recommendations",
+      category: "AI/ML",
+      description: "Intelligent movie recommendation system using machine learning to provide personalized suggestions based on user preferences and viewing history.",
+      image: "🎬",
+      technologies: ["Python", "React", "TensorFlow", "Flask", "TMDB API"],
+      features: ["Personalized Recommendations", "Content-Based Filtering", "User Ratings", "Movie Database"],
+      github: "https://github.com/maanasvarma2003/AI-powered-movie-recommendations",
+      live: "https://ai-powered-movie-recommendations.vercel.app/",
+      date: "2025",
+      status: "Trending"
+    },
+    {
+      id: 4,
+      title: "AI Personal Finance Tracker",
+      category: "Full Stack",
+      description: "Comprehensive personal finance management app with AI-powered insights, expense tracking, and budget recommendations.",
+      image: "💰",
+      technologies: ["React", "Node.js", "PostgreSQL", "OpenAI", "Chart.js"],
+      features: ["Expense Tracking", "AI Insights", "Budget Planning", "Financial Analytics"],
+      github: "https://github.com/maanasvarma2003/AI-powered-finance-tracker",
+      live: "https://ai-powered-finance-tracker-beta.vercel.app/",
+      date: "2025",
+      status: "Popular"
+    },
+    {
+      id: 5,
+      title: "Workout Tracker App",
+      category: "Full Stack",
+      description: "Full-featured workout tracking application with exercise logs, progress visualization, and personalized workout plans.",
+      image: "💪",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
+      features: ["Exercise Logging", "Progress Tracking", "Workout Plans", "Performance Analytics"],
+      github: "https://github.com/maanasvarma2003/workout_tracker",
+      live: "https://workout-tracker-nu-eight.vercel.app/",
+      date: "2025",
+      status: "New"
+    },
+    {
+      id: 6,
       title: "AI Trading Bot",
       category: "AI/ML",
       description: "Intelligent trading bot using machine learning algorithms for market analysis and automated trading decisions with risk management.",
@@ -33,7 +85,7 @@ const Projects = () => {
       status: "Trending"
     },
     {
-      id: 3,
+      id: 7,
       title: "AI PDF Chatbot",
       category: "AI/ML",
       description: "Intelligent chatbot that can analyze PDF documents and answer questions about their content using natural language processing.",
@@ -42,14 +94,14 @@ const Projects = () => {
       features: ["PDF Analysis", "Natural Language Q&A", "Context Understanding", "Multi-document Support"],
       github: "https://github.com/maanasvarma2003/AI-pdf-chatbot",
       date: "2025",
-      status: "New"
+      status: "Innovative"
     },
     {
-      id: 4,
+      id: 8,
       title: "Stock Market Predictor",
       category: "Data Science",
       description: "Advanced stock price prediction system using machine learning models, technical indicators, and sentiment analysis.",
-      image: "📊",
+      image: "📉",
       technologies: ["Python", "Scikit-learn", "LSTM", "Matplotlib", "Yahoo Finance API"],
       features: ["Price Prediction", "Technical Analysis", "Sentiment Analysis", "Risk Assessment"],
       github: "https://github.com/maanasvarma2003/stock-market-prediction",
@@ -57,7 +109,7 @@ const Projects = () => {
       status: "Popular"
     },
     {
-      id: 5,
+      id: 9,
       title: "Blockchain Voting System",
       category: "Blockchain",
       description: "Secure and transparent voting platform built on blockchain technology ensuring immutability and voter privacy.",
@@ -69,7 +121,7 @@ const Projects = () => {
       status: "Innovative"
     },
     {
-      id: 6,
+      id: 10,
       title: "AI Rural Loan Lending App",
       category: "AI/ML",
       description: "AI-powered loan assessment platform for rural areas using alternative credit scoring and machine learning risk analysis.",
@@ -77,11 +129,12 @@ const Projects = () => {
       technologies: ["Python", "Django", "React Native", "TensorFlow", "PostgreSQL"],
       features: ["AI Credit Scoring", "Risk Assessment", "Mobile App", "Rural Focus"],
       github: "https://github.com/maanasvarma2003/AI-Loan-assistant",
+      live: "https://ai-loan-assistant.vercel.app/",
       date: "2025",
       status: "Featured"
     },
     {
-      id: 7,
+      id: 11,
       title: "Advanced Employee App Catalog",
       category: "Full Stack",
       description: "Comprehensive employee management system with advanced features for HR operations, performance tracking, and analytics.",
@@ -89,6 +142,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       features: ["Employee Management", "Performance Analytics", "HR Dashboard", "Real-time Updates"],
       github: "https://github.com/maanasvarma2003/team-app-haven",
+      live: "https://vercel.com/maanas-varma-s-hs-projects/algo-pilot-scribe",
       date: "2025",
       status: "Popular"
     }
@@ -245,16 +299,27 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex mt-auto">
+                  <div className="flex gap-2 mt-auto">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => window.open(project.github, "_blank")}
-                      className="w-full hover:scale-105 transition-all duration-300"
+                      className="flex-1 hover:scale-105 transition-all duration-300"
                     >
                       <Github className="w-4 h-4 mr-2" />
                       View Code
                     </Button>
+                    {project.live && (
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => window.open(project.live, "_blank")}
+                        className="flex-1 hover:scale-105 transition-all duration-300"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    )}
                   </div>
                 </div>
               </CardContent>
