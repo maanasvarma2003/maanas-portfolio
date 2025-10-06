@@ -145,6 +145,19 @@ const Projects = () => {
       live: "https://vercel.com/maanas-varma-s-hs-projects/algo-pilot-scribe",
       date: "2025",
       status: "Popular"
+    },
+    {
+      id: 12,
+      title: "OPS Insight Detector",
+      category: "AI/ML",
+      description: "Advanced anomaly detection system for server performance metrics. AI pipeline that analyzes CPU, memory, network, and disk I/O patterns to flag potential incidents using multiple ML models.",
+      image: "🔍",
+      technologies: ["Python", "TensorFlow", "Pandas", "NumPy", "Scikit-learn"],
+      features: ["Multi-Model Detection", "Real-time Monitoring", "Data Visualization", "Explainable AI"],
+      github: "https://github.com/maanasvarma2003/ops-insight-detector",
+      live: "https://ops-insight-detector.vercel.app/",
+      date: "2025",
+      status: "Innovative"
     }
   ];
 
