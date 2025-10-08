@@ -45,6 +45,12 @@ export const ProjectCard3D = ({ title, tech, color }: ProjectCard3DProps) => {
       <Canvas
         camera={{ position: [0, 0, 3], fov: 50 }}
         style={{ background: 'transparent' }}
+        gl={{ 
+          antialias: false,
+          alpha: true,
+          powerPreference: "low-power"
+        }}
+        dpr={1}
       >
         <ambientLight intensity={0.4} />
         <directionalLight position={[2, 2, 1]} intensity={0.6} />

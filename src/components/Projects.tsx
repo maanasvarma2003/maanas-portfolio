@@ -158,6 +158,19 @@ const Projects = () => {
       live: "https://ops-insight-detector.vercel.app/",
       date: "2025",
       status: "Innovative"
+    },
+    {
+      id: 13,
+      title: "Credit Card Fraud Detection",
+      category: "AI/ML",
+      description: "Machine learning system for detecting fraudulent credit card transactions using advanced classification algorithms and anomaly detection techniques.",
+      image: "💳",
+      technologies: ["Python", "Scikit-learn", "XGBoost", "Pandas", "Streamlit"],
+      features: ["Fraud Detection", "Real-time Analysis", "Model Comparison", "Data Imbalance Handling"],
+      github: "https://github.com/maanasvarma2003/AI-Creditcard-fraud-detection",
+      live: "https://ai-creditcard-fraud-detection.vercel.app/",
+      date: "2025",
+      status: "Featured"
     }
   ];
 
@@ -231,16 +244,18 @@ const Projects = () => {
               <CardContent className="p-0 h-full">
                 {/* Project Header with 3D Background */}
                 <div className="relative p-6 bg-gradient-to-br from-card to-card-hover overflow-hidden">
-                  {/* 3D visualization background */}
-                  <div className="absolute inset-0 opacity-30">
-                    <Suspense fallback={null}>
-                      <ProjectCard3D 
-                        title={project.title}
-                        tech={project.technologies}
-                        color={getProjectColor(project.category)}
-                      />
-                    </Suspense>
-                  </div>
+                  {/* 3D visualization background - only load for first 6 projects */}
+                  {index < 6 && (
+                    <div className="absolute inset-0 opacity-30">
+                      <Suspense fallback={null}>
+                        <ProjectCard3D 
+                          title={project.title}
+                          tech={project.technologies}
+                          color={getProjectColor(project.category)}
+                        />
+                      </Suspense>
+                    </div>
+                  )}
                   
                   <div className="relative z-10">
                     <div className="flex items-start justify-between mb-4">

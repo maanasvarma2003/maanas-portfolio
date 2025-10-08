@@ -50,8 +50,11 @@ const Hero = () => {
           </div>
 
           {/* Name */}
-          <h1 className="animate-fade-in text-5xl md:text-7xl font-bold text-gradient leading-tight" style={{ animationDelay: "0.4s" }}>
+          <h1 className="animate-fade-in text-5xl md:text-7xl font-bold text-gradient leading-tight flex items-center justify-center gap-4" style={{ animationDelay: "0.4s" }}>
             Maanas Varma
+            <span className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-accent-cyan via-accent-blue to-accent-purple rounded-full animate-glow shadow-lg">
+              <Zap className="w-6 h-6 md:w-8 md:h-8 text-white animate-pulse" />
+            </span>
           </h1>
 
           {/* Typing Animation */}

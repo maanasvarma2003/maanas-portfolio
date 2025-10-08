@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { FloatingGeometry } from './FloatingGeometry';
 import { ParticleField } from './ParticleField';
 
@@ -10,15 +10,19 @@ export const HeroScene3D = () => {
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
         style={{ background: 'transparent' }}
+        gl={{ 
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance"
+        }}
+        dpr={[1, 2]}
       >
         <Suspense fallback={null}>
           {/* Ambient lighting */}
           <ambientLight intensity={0.3} />
           <directionalLight position={[10, 10, 5]} intensity={0.5} />
           <pointLight position={[-10, -10, -5]} intensity={0.3} color="#6366f1" />
-          
-          {/* Environment for reflections */}
-          <Environment preset="night" />
+          <pointLight position={[5, 5, 5]} intensity={0.2} color="#8b5cf6" />
           
           {/* Floating geometric shapes */}
           <FloatingGeometry 
