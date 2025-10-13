@@ -171,6 +171,19 @@ const Projects = () => {
       live: "https://ai-creditcard-fraud-detection.vercel.app/",
       date: "2025",
       status: "Featured"
+    },
+    {
+      id: 14,
+      title: "Smart Task Planner",
+      category: "Data Science",
+      description: "Intelligent task planning system using data science techniques to optimize task scheduling, prioritization, and resource allocation based on historical patterns and predictive analytics.",
+      image: "📋",
+      technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
+      features: ["Smart Scheduling", "Priority Optimization", "Resource Allocation", "Predictive Analytics"],
+      github: "https://github.com/maanasvarma2003/smart-task-planner",
+      live: "https://smart-tast-planner.vercel.app/",
+      date: "2025",
+      status: "New"
     }
   ];
 

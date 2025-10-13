@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from "react";
-import { ArrowDown, Code, Palette, Zap } from "lucide-react";
+import { ArrowDown, Code, Palette, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroScene3D } from "./3D/HeroScene3D";
 
@@ -52,8 +52,9 @@ const Hero = () => {
           {/* Name */}
           <h1 className="animate-fade-in text-5xl md:text-7xl font-bold text-gradient leading-tight flex items-center justify-center gap-4" style={{ animationDelay: "0.4s" }}>
             Maanas Varma
-            <span className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-accent-cyan via-accent-blue to-accent-purple rounded-full animate-glow shadow-lg">
-              <Zap className="w-6 h-6 md:w-8 md:h-8 text-white animate-pulse" />
+            <span className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-full animate-glow shadow-lg relative overflow-hidden">
+              <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-white animate-pulse relative z-10" />
+              <span className="absolute inset-0 bg-gradient-to-br from-accent-cyan/30 to-transparent animate-spin" style={{ animationDuration: "3s" }}></span>
             </span>
           </h1>
 
