@@ -184,6 +184,19 @@ const Projects = () => {
       live: "https://smart-tast-planner.vercel.app/",
       date: "2025",
       status: "New"
+    },
+    {
+      id: 15,
+      title: "Prompt-Driven Email Productivity Agent",
+      category: "AI/ML",
+      description: "Intelligent email productivity agent powered by LLM that automates inbox management through email categorization, action-item extraction, auto-drafting replies, and chat-based interactions using customizable prompt templates.",
+      image: "📧",
+      technologies: ["Python", "LLM", "Streamlit", "React", "RAG"],
+      features: ["Email Categorization", "Action Extraction", "Auto-Reply Drafts", "Chat Interaction"],
+      github: "https://github.com/maanasvarma2003/Prompt-Driven-Email-Productivity-Agent",
+      live: "https://prompt-driven-email-productivity-ag-ten.vercel.app/",
+      date: "2025",
+      status: "Innovative"
     }
   ];
 
