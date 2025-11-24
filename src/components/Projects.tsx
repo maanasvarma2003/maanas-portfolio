@@ -142,7 +142,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       features: ["Employee Management", "Performance Analytics", "HR Dashboard", "Real-time Updates"],
       github: "https://github.com/maanasvarma2003/team-app-haven",
-      live: "https://vercel.com/maanas-varma-s-hs-projects/algo-pilot-scribe",
+      live: "https://team-app-haven.vercel.app/",
       date: "2025",
       status: "Popular"
     },
