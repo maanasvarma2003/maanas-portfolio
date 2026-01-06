@@ -67,7 +67,7 @@ const Navigation = () => {
               );
             })}
             <Button
-              onClick={() => window.open("https://drive.google.com/file/d/19ekkLMLJ0JdlSF5_tT8FYgt12VP5Ens_/view?usp=sharing")}
+              onClick={() => window.open("https://drive.google.com/file/d/1hig8yzePVZGRgJksvI3vLVSkGCK1B1Nu/view?usp=sharing")}
               className="btn-primary px-4 py-2 rounded-lg"
             >
               <Download className="w-4 h-4 mr-2" />
@@ -104,7 +104,7 @@ const Navigation = () => {
                 );
               })}
               <Button
-                onClick={() => window.open("https://drive.google.com/file/d/19ekkLMLJ0JdlSF5_tT8FYgt12VP5Ens_/view?usp=sharing")}
+                onClick={() => window.open("https://drive.google.com/file/d/1hig8yzePVZGRgJksvI3vLVSkGCK1B1Nu/view?usp=sharing")}
                 className="btn-primary w-full mt-4"
               >
                 <Download className="w-4 h-4 mr-2" />
