@@ -197,6 +197,19 @@ const Projects = () => {
       live: "https://prompt-driven-email-productivity-ag-ten.vercel.app/",
       date: "2025",
       status: "Innovative"
+    },
+    {
+      id: 16,
+      title: "CrowdSafe Monitor",
+      category: "AI/ML",
+      description: "Real-time crowd risk detection system using advanced ML models including YOLOv8 for object detection, CSRNet for crowd density estimation, and LSTM for temporal pattern analysis to predict and prevent stampede risks.",
+      image: "👥",
+      technologies: ["Python", "YOLOv8", "CSRNet", "LSTM", "OpenCV"],
+      features: ["Real-Time Detection", "Crowd Density Analysis", "Risk Prediction", "Alert System"],
+      github: "https://github.com/maanasvarma2003/stampede_risk_detection",
+      live: "",
+      date: "2025",
+      status: "Featured"
     }
   ];
 
