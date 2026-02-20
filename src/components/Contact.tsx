@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,8 +12,6 @@ const Contact = () => {
     subject: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const contactInfo = [
     {
@@ -72,32 +68,12 @@ const Contact = () => {
     }
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: formData,
-      });
-
-      if (error) throw error;
-
-      toast({
-        title: "Message Sent! ✉️",
-        description: "Thank you for reaching out! I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast({
-        title: "Failed to send",
-        description: "Something went wrong. Please try emailing me directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    console.log("Form submitted:", formData);
+    // Here you would typically send the form data to your backend
+    alert("Thank you for your message! I'll get back to you soon.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -259,13 +235,9 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 className="btn-glow w-full py-3 text-lg"
-                disabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending...</>
-                ) : (
-                  <><Send className="w-5 h-5 mr-2" /> Send Message</>
-                )}
+                <Send className="w-5 h-5 mr-2" />
+                Send Message
               </Button>
             </form>
           </Card>
