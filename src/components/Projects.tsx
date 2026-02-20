@@ -210,6 +210,45 @@ const Projects = () => {
       live: "",
       date: "2025",
       status: "Featured"
+    },
+    {
+      id: 17,
+      title: "NeuroCast Digital Twin",
+      category: "AI/ML",
+      description: "Patent-ready AI digital twin of equity markets combining CNN+Transformer microstructure encoding, Temporal Fusion Transformer for macro signals, contrastive regime detection, and regime-conditioned diffusion models for realistic future price path generation and stress testing.",
+      image: "🧠",
+      technologies: ["Python", "PyTorch", "FastAPI", "React", "D3.js"],
+      features: ["Regime Detection", "Diffusion Simulation", "Stress Testing", "Digital Twin Dashboard"],
+      github: "https://github.com/maanasvarma2003/NeuroCast-DT",
+      live: "",
+      date: "2025",
+      status: "Innovative"
+    },
+    {
+      id: 18,
+      title: "Autonomous Business Risk Brain",
+      category: "AI/ML",
+      description: "Unified AI system predicting financial fraud, cybersecurity attacks, compliance violations, and customer churn using domain-specific ML models, graph-based risk propagation, Bayesian fusion, SHAP explainability, and LLM-powered reasoning — exposed via REST APIs and a Streamlit dashboard.",
+      image: "🛡️",
+      technologies: ["Python", "XGBoost", "PyTorch", "FastAPI", "NetworkX"],
+      features: ["Multi-Domain Risk", "Bayesian Fusion", "Explainable AI", "Graph Risk Engine"],
+      github: "https://github.com/maanasvarma2003/Autonomous-Business-Risk-Brain-ABRB-",
+      live: "",
+      date: "2025",
+      status: "Featured"
+    },
+    {
+      id: 19,
+      title: "Self-Healing Cloud AI SRE",
+      category: "AI/ML",
+      description: "Autonomous self-healing cloud platform using anomaly detection (Autoencoders, Isolation Forest, LSTM), causal root cause analysis with DAGs, LLM-based SRE reasoning, and reinforcement learning remediation — all validated through a secure execution sandbox to reduce MTTR without human intervention.",
+      image: "☁️",
+      technologies: ["Python", "PyTorch", "FastAPI", "Kubernetes", "React"],
+      features: ["Anomaly Detection", "Causal RCA", "RL Remediation", "Secure Sandbox"],
+      github: "https://github.com/maanasvarma2003/Self-Healing-Cloud-Infrastructure-Using-Autonomous-AI-SRE-Agents",
+      live: "",
+      date: "2025",
+      status: "Innovative"
     }
   ];
 
