@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain } from "lucide-react";
+import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import leoSymbol from "@/assets/leo-symbol.png";
 
@@ -21,6 +21,7 @@ const Navigation = () => {
     { name: "Education", href: "#education", icon: GraduationCap, color: "text-accent-emerald" },
     { name: "Experience", href: "#experience", icon: Briefcase, color: "text-accent-cyan" },
     { name: "Projects", href: "#projects", icon: Folder, color: "text-accent-orange" },
+    { name: "Research", href: "#research", icon: FileText, color: "text-accent-emerald" },
     { name: "Contact", href: "#contact", icon: Mail, color: "text-accent-pink" },
   ];
 
