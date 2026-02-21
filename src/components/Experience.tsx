@@ -152,7 +152,7 @@ const Experience = () => {
             <div className="text-foreground-muted">Month Experience</div>
           </Card>
           <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-            <div className="text-4xl font-bold text-gradient mb-2">7+</div>
+            <div className="text-4xl font-bold text-gradient mb-2">20+</div>
             <div className="text-foreground-muted">Projects Completed</div>
           </Card>
           <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
