@@ -79,7 +79,7 @@ const About = () => {
               </p>
               
               <Button 
-                onClick={() => window.open("https://drive.google.com/file/d/1hig8yzePVZGRgJksvI3vLVSkGCK1B1Nu/view?usp=sharing")}
+                onClick={() => window.open("https://drive.google.com/file/d/17NeBV0MKX3hJetHBpXkbVt1YaeYTkx-4/view?usp=sharing", "_blank")}
                 className="btn-glow px-6 py-3 rounded-lg"
               >
                 <Download className="w-5 h-5 mr-2" />
