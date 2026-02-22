@@ -249,6 +249,32 @@ const Projects = () => {
       live: "",
       date: "2025",
       status: "Innovative"
+    },
+    {
+      id: 20,
+      title: "Quantum-Resilient AI Market Intelligence Engine",
+      category: "AI/ML",
+      description: "Autonomous AI-powered financial reasoning and systemic risk detection platform featuring RAG-based financial reasoning, dynamic knowledge graphs with GNN contagion prediction, ensemble forecasting (TFT, PatchTST, Informer, Neural SDE), adversarial manipulation detection, multi-agent RL portfolio optimization, and post-quantum cryptographic security — built as production-grade microservices with zero-trust architecture and differential privacy.",
+      image: "🔐",
+      technologies: ["Python", "PyTorch", "FastAPI", "Neo4j", "Kafka"],
+      features: ["RAG Financial Reasoning", "Knowledge Graph GNN", "Quantum-Resilient Security", "Multi-Agent RL Portfolio"],
+      github: "https://github.com/maanasvarma2003/Quantum-Resilient-AI-Market-Intelligence-Engine-QRA-MIE-",
+      live: "",
+      date: "2025",
+      status: "Featured"
+    },
+    {
+      id: 21,
+      title: "Store Provisioning Platform",
+      category: "Full Stack",
+      description: "Kubernetes-native multi-tenant store provisioning platform that automatically deploys isolated WooCommerce or MedusaJS ecommerce stores via Helm charts. Features namespace-per-store isolation, persistent storage, ingress routing, clean teardown, abuse prevention, RBAC, and a React dashboard — designed for seamless local-to-VPS production deployment with configuration-only changes.",
+      image: "🏪",
+      technologies: ["Kubernetes", "Helm", "React", "Node.js", "Docker"],
+      features: ["K8s-Native Provisioning", "Multi-Tenant Isolation", "Helm-Based Deployment", "End-to-End Store Lifecycle"],
+      github: "https://github.com/maanasvarma2003/store-provisioning-platform",
+      live: "",
+      date: "2025",
+      status: "Innovative"
     }
   ];
 
