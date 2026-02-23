@@ -266,7 +266,7 @@ const Projects = () => {
     {
       id: 21,
       title: "Store Provisioning Platform",
-      category: "Full Stack",
+      category: "Cloud Native",
       description: "Kubernetes-native multi-tenant store provisioning platform that automatically deploys isolated WooCommerce or MedusaJS ecommerce stores via Helm charts. Features namespace-per-store isolation, persistent storage, ingress routing, clean teardown, abuse prevention, RBAC, and a React dashboard — designed for seamless local-to-VPS production deployment with configuration-only changes.",
       image: "🏪",
       technologies: ["Kubernetes", "Helm", "React", "Node.js", "Docker"],
@@ -278,7 +278,7 @@ const Projects = () => {
     }
   ];
 
-  const categories = ["All", "Frontend", "AI/ML", "Data Science", "Blockchain", "Full Stack"];
+  const categories = ["All", "Frontend", "AI/ML", "Data Science", "Blockchain", "Full Stack", "Cloud Native"];
 
   const filteredProjects = filter === "All" 
     ? projects 
