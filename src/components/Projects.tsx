@@ -17,6 +17,7 @@ const Projects = () => {
       technologies: ["React", "JavaScript", "CSS3", "HTML5", "Framer Motion"],
       features: ["Responsive Design", "Modern UI/UX", "Interactive Animations", "SEO Optimized"],
       github: "https://github.com/maanasvarma2003/Hexapro-Technologies",
+      live: "https://hexapro-technologies.vercel.app/",
       date: "2023",
       status: "Featured"
     },
