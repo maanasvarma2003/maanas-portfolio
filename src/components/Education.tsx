@@ -8,7 +8,7 @@ const Education = () => {
       institution: "Vellore Institute of Technology (VIT), Vellore",
       board: "VIT University",
       period: "2022 - 2026",
-      
+      gpa: "7.59 CGPA",
       color: "from-accent-blue to-accent-cyan"
     },
     {
