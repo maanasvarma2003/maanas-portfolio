@@ -1,4 +1,5 @@
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import { GraduationCap, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Education = () => {
@@ -9,7 +10,8 @@ const Education = () => {
       board: "VIT University",
       period: "2022 - 2026",
       gpa: "7.59 CGPA",
-      color: "from-accent-blue to-accent-cyan"
+      color: "from-accent-blue to-accent-cyan",
+      dotColor: "bg-accent-cyan"
     },
     {
       degree: "Pre-University (PCMC)",
@@ -17,7 +19,8 @@ const Education = () => {
       board: "Karnataka State Board",
       period: "2020 - 2022",
       gpa: "91.83%",
-      color: "from-accent-purple to-accent-pink"
+      color: "from-accent-purple to-accent-pink",
+      dotColor: "bg-accent-purple"
     },
     {
       degree: "ICSE (Class X)",
@@ -25,150 +28,123 @@ const Education = () => {
       board: "ICSE Board",
       period: "2020",
       gpa: "92.5%",
-      color: "from-accent-emerald to-accent-cyan"
+      color: "from-accent-emerald to-accent-cyan",
+      dotColor: "bg-accent-emerald"
     }
   ];
 
   return (
-    <section id="education" className="section-padding">
+    <section id="education" className="section-padding relative overflow-hidden">
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      
       <div className="container-width">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <GraduationCap className="w-8 h-8 text-accent-purple mr-3" />
-            <h2 className="text-4xl font-bold text-gradient">Education</h2>
-          </div>
-          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
-            My academic journey and continuous learning path in technology and design
-          </p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-emerald/20 bg-accent-emerald/5 text-accent-emerald text-sm font-grotesk mb-6">
+            <GraduationCap className="w-4 h-4" />
+            Academic Journey
+          </span>
+          <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
+            Education
+          </h2>
+        </motion.div>
 
-        {/* Train-themed Education Timeline */}
+        {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
-          {/* Enhanced Train Track with Sleepers */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-emerald rounded-full shadow-lg"></div>
-          {/* Railway Sleepers */}
-          <div className="absolute left-6 top-0 bottom-0">
-            {[...Array(12)].map((_, i) => (
-              <div 
-                key={i}
-                className="absolute w-5 h-1 bg-gradient-to-r from-card-border to-foreground-muted rounded-full opacity-30"
-                style={{ 
-                  top: `${8 + i * 8}%`,
-                  left: '-10px',
-                  animationDelay: `${i * 0.1}s`
-                }}
-              />
-            ))}
-          </div>
+          {/* Timeline line */}
+          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent-cyan via-accent-purple to-accent-emerald"></div>
           
-          <div className="space-y-16">
+          <div className="space-y-12">
             {educationData.map((edu, index) => (
-              <div 
+              <motion.div
                 key={index}
-                className="relative flex items-center group animate-fade-in"
-                style={{ animationDelay: `${index * 0.4}s` }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="relative flex items-start group"
               >
-                {/* Enhanced Train Station (Circle) with Steam Effect */}
-                <div className="relative left-6">
-                  <div className={`w-8 h-8 bg-gradient-to-r ${edu.color} rounded-full border-4 border-background shadow-xl z-10 group-hover:scale-150 transition-all duration-700 animate-pulse`}>
-                    <div className="absolute inset-0 rounded-full animate-ping bg-gradient-to-r opacity-30" style={{ animationDuration: '2s' }}></div>
-                  </div>
-                  {/* Steam effect */}
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    {[...Array(3)].map((_, i) => (
-                      <div 
-                        key={i}
-                        className="absolute w-1 h-1 bg-accent-cyan/40 rounded-full animate-bounce opacity-0 group-hover:opacity-100"
-                        style={{ 
-                          animationDelay: `${i * 0.2}s`,
-                          left: `${i * 2}px`,
-                          top: `-${i * 3}px`
-                        }}
-                      />
-                    ))}
+                {/* Timeline dot */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className={`w-8 md:w-10 h-8 md:h-10 rounded-full ${edu.dotColor} border-4 border-background shadow-lg group-hover:scale-125 transition-all duration-500`}>
+                    <div className={`absolute inset-0 rounded-full ${edu.dotColor} opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500`}></div>
                   </div>
                 </div>
                 
-                {/* Enhanced Train Car (Education Card) with 3D effects */}
-                <Card className="ml-16 card-3d hover:scale-105 transition-all duration-700 overflow-hidden group-hover:shadow-2xl transform hover:-translate-y-2">
+                {/* Card */}
+                <Card className="ml-8 md:ml-12 flex-1 card-glass rounded-2xl overflow-hidden group-hover:border-primary/20 transition-all duration-500">
                   <CardContent className="p-0">
                     <div className="flex">
-                      {/* Enhanced Colorful Side Bar with pattern */}
-                      <div className={`w-3 bg-gradient-to-b ${edu.color} flex-shrink-0 relative overflow-hidden`}>
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent animate-pulse"></div>
-                      </div>
+                      <div className={`w-1.5 bg-gradient-to-b ${edu.color} flex-shrink-0`}></div>
                       
-                      {/* Enhanced Content with floating elements */}
-                      <div className="flex-1 p-8 relative">
-                        <div className="flex justify-between items-start mb-6">
-                          <div className="flex-1">
-                            <h3 className="text-2xl font-bold text-gradient mb-3 group-hover:scale-105 transition-transform duration-500">
+                      <div className="flex-1 p-6 md:p-8">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-syne font-bold text-foreground mb-2">
                               {edu.degree}
                             </h3>
-                            <h4 className="text-xl font-semibold text-foreground-secondary mb-2 group-hover:text-gradient transition-all duration-500">
+                            <h4 className="text-base font-grotesk font-medium text-foreground-secondary mb-1">
                               {edu.institution}
                             </h4>
-                            <p className="text-sm text-accent-cyan font-medium flex items-center">
-                              <span className="w-2 h-2 bg-accent-cyan rounded-full mr-2 animate-pulse"></span>
-                              {edu.board}
-                            </p>
+                            <p className="text-sm text-accent-cyan font-grotesk">{edu.board}</p>
                           </div>
                           
-                          <div className="text-right">
-                            <div className="flex items-center text-foreground-muted text-sm mb-3">
-                              <Calendar className="w-4 h-4 mr-2 animate-pulse" />
+                          <div className="flex flex-row md:flex-col items-center md:items-end gap-3">
+                            <div className="flex items-center text-foreground-muted text-sm font-grotesk">
+                              <Calendar className="w-4 h-4 mr-2" />
                               {edu.period}
                             </div>
-                            <div className={`inline-block px-4 py-2 rounded-full text-sm font-bold text-primary-foreground bg-gradient-to-r ${edu.color} shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110`}>
+                            <span className={`px-4 py-1.5 rounded-full text-sm font-grotesk font-bold text-primary-foreground bg-gradient-to-r ${edu.color} shadow-md`}>
                               {edu.gpa}
-                            </div>
+                            </span>
                           </div>
-                        </div>
-                        
-                        {/* Floating achievement badge */}
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <div className={`w-4 h-4 bg-gradient-to-r ${edu.color} rounded-full animate-bounce`}></div>
                         </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Skills Learned Section */}
-        <div className="mt-16">
-          <Card className="card-glass p-8">
-            <h3 className="text-2xl font-bold text-gradient-accent mb-6 text-center">
-              Core Subjects & Technologies Learned
+        {/* Subjects */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <Card className="card-glass p-8 rounded-2xl">
+            <h3 className="text-2xl font-syne font-bold text-gradient-accent mb-8 text-center">
+              Core Subjects
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {[
-                "Data Structures & Algorithms",
-                "Statistics & Probability",
-                "Machine Learning",
-                "Deep Learning",
-                "Data Mining",
-                "Statistical Analysis",
-                "Python Programming",
-                "Database Management",
-                "Linear Algebra",
-                "Calculus & Optimization",
-                "Data Visualization",
-                "Research Methodology"
+                "Data Structures & Algorithms", "Statistics & Probability", "Machine Learning", "Deep Learning",
+                "Data Mining", "Statistical Analysis", "Python Programming", "Database Management",
+                "Linear Algebra", "Calculus & Optimization", "Data Visualization", "Research Methodology"
               ].map((subject, index) => (
-                <div 
+                <motion.div
                   key={index}
-                  className="bg-gradient-to-r from-card to-card-hover p-4 rounded-lg text-center hover:scale-105 transition-all duration-300 border border-card-border"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.03 }}
+                  className="px-4 py-3 rounded-xl text-center text-sm font-grotesk font-medium text-foreground-secondary border border-card-border hover:border-primary/20 hover:bg-card/50 transition-all duration-300"
                 >
-                  <span className="text-foreground font-medium">{subject}</span>
-                </div>
+                  {subject}
+                </motion.div>
               ))}
             </div>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

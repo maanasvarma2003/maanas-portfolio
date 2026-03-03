@@ -14,11 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        syne: ['Syne', 'sans-serif'],
+        grotesk: ['Space Grotesk', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        // Base colors
         background: {
           DEFAULT: "hsl(var(--background))",
           secondary: "hsl(var(--background-secondary))",
@@ -29,16 +29,12 @@ export default {
           secondary: "hsl(var(--foreground-secondary))",
           muted: "hsl(var(--foreground-muted))",
         },
-        
-        // Brand colors
         primary: {
           DEFAULT: "hsl(var(--primary))",
           light: "hsl(var(--primary-light))",
           dark: "hsl(var(--primary-dark))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        
-        // Accent colors
         accent: {
           purple: "hsl(var(--accent-purple))",
           blue: "hsl(var(--accent-blue))",
@@ -47,24 +43,19 @@ export default {
           emerald: "hsl(var(--accent-emerald))",
           orange: "hsl(var(--accent-orange))",
         },
-        
-        // UI colors
         card: {
           DEFAULT: "hsl(var(--card))",
           hover: "hsl(var(--card-hover))",
           border: "hsl(var(--card-border))",
           foreground: "hsl(var(--card-foreground))",
         },
-        
         border: {
           DEFAULT: "hsl(var(--border))",
           light: "hsl(var(--border-light))",
         },
-        
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
       },
-      
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-secondary': 'var(--gradient-secondary)',
@@ -73,7 +64,6 @@ export default {
         'gradient-card': 'var(--gradient-card)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
-      
       boxShadow: {
         'sm': 'var(--shadow-sm)',
         'md': 'var(--shadow-md)',
@@ -81,14 +71,13 @@ export default {
         'xl': 'var(--shadow-xl)',
         'glow': 'var(--shadow-glow)',
         'card': 'var(--shadow-card)',
+        'neon': 'var(--shadow-neon)',
       },
-      
       borderRadius: {
         DEFAULT: "var(--radius)",
         lg: "var(--radius-lg)",
         xl: "var(--radius-xl)",
       },
-      
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -97,8 +86,9 @@ export default {
         "slide-up": "slideUp 0.6s ease-out forwards",
         "fade-in": "fadeIn 0.8s ease-out forwards",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "gradient": "gradientShift 8s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
       },
-      
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -129,12 +119,19 @@ export default {
           "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.3)" },
           "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.6)" },
         },
+        gradientShift: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
-      
       transitionTimingFunction: {
-        'smooth': 'var(--transition-smooth)',
-        'bounce': 'var(--transition-bounce)',
-        'slow': 'var(--transition-slow)',
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'slow': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },
