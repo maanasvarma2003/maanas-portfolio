@@ -1,6 +1,8 @@
-import { User, Download, Award, Target, Heart } from "lucide-react";
+import { Download, Award, Target, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedCounter } from "./ui/animated-counter";
 import maanasPhoto from "@/assets/maanas.jpg";
 
 const About = () => {
@@ -14,146 +16,178 @@ const About = () => {
   ];
 
   const highlights = [
-    {
-      icon: Award,
-      title: "Excellence Driven",
-      description: "Committed to delivering high-quality solutions that exceed expectations"
-    },
-    {
-      icon: Target,
-      title: "Problem Solver",
-      description: "Analytical mindset focused on finding innovative solutions to complex challenges"
-    },
-    {
-      icon: Heart,
-      title: "User Focused",
-      description: "Passionate about creating intuitive experiences that users love"
-    }
+    { icon: Award, title: "Excellence Driven", description: "Committed to delivering high-quality solutions that exceed expectations", gradient: "from-accent-blue to-accent-cyan" },
+    { icon: Target, title: "Problem Solver", description: "Analytical mindset focused on finding innovative solutions to complex challenges", gradient: "from-accent-purple to-accent-pink" },
+    { icon: Heart, title: "User Focused", description: "Passionate about creating intuitive experiences that users love", gradient: "from-accent-orange to-accent-pink" },
   ];
 
   return (
-    <section id="about" className="section-padding bg-background-secondary/50">
+    <section id="about" className="section-padding relative overflow-hidden">
+      {/* Section divider */}
+      <div className="section-divider absolute top-0 left-0 right-0" />
+      
       <div className="container-width">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <User className="w-8 h-8 text-accent-blue mr-3" />
-            <h2 className="text-4xl font-bold text-gradient">About Me</h2>
-          </div>
-          <p className="text-lg text-foreground-muted max-w-2xl mx-auto">
-            Discover my journey, skills, and passion for creating exceptional digital experiences
-          </p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-blue/20 bg-accent-blue/5 text-accent-blue text-sm font-grotesk mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+            About Me
+          </span>
+          <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
+            Who I Am
+          </h2>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Content */}
           <div className="space-y-8">
             {/* Profile Photo */}
-            <div className="flex justify-center lg:justify-start mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center lg:justify-start"
+            >
               <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink rounded-full blur-lg opacity-75 group-hover:opacity-100 animate-pulse"></div>
-                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-gradient-primary shadow-2xl">
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div className="relative w-52 h-52 rounded-3xl overflow-hidden border-2 border-card-border shadow-2xl">
                   <img 
                     src={maanasPhoto} 
                     alt="Maanas Varma - Data Scientist" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                 </div>
               </div>
-            </div>
-            <div className="card-floating p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-gradient-secondary mb-4">
-                My Story
-              </h3>
-              <p className="text-foreground-secondary leading-relaxed mb-6">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="card-glass p-8 rounded-2xl"
+            >
+              <h3 className="text-2xl font-syne font-bold text-gradient-secondary mb-4">My Story</h3>
+              <p className="text-foreground-secondary leading-relaxed mb-4 font-grotesk">
                 I'm a passionate data scientist and AI/ML engineer with expertise in extracting 
-                meaningful insights from complex datasets and building intelligent systems. With 
-                a strong foundation in statistics, machine learning, and data visualization, 
-                I transform raw data into actionable business intelligence.
+                meaningful insights from complex datasets and building intelligent systems.
               </p>
-              <p className="text-foreground-secondary leading-relaxed mb-6">
-                My journey in data science combines analytical thinking with technical expertise 
+              <p className="text-foreground-secondary leading-relaxed mb-6 font-grotesk">
+                My journey combines analytical thinking with technical expertise 
                 to solve real-world problems. I specialize in predictive modeling, deep learning, 
-                and creating data-driven solutions that drive business growth and innovation. 
-                Beyond technology, I'm deeply interested in financial markets and stock trading, 
-                applying data science techniques to market analysis and algorithmic trading strategies.
+                and creating data-driven solutions. Beyond technology, I'm deeply interested in 
+                financial markets and algorithmic trading strategies.
               </p>
               
               <Button 
                 onClick={() => window.open("https://drive.google.com/file/d/1QyVcV9hfj-MbGhXhG_UDZEu3VlD_v0C8/view?usp=sharing", "_blank")}
-                className="btn-glow px-6 py-3 rounded-lg"
+                className="btn-glow px-6 py-3 rounded-xl font-grotesk"
               >
                 <Download className="w-5 h-5 mr-2" />
                 View Full Resume
               </Button>
-            </div>
+            </motion.div>
 
             {/* Highlights */}
-            <div className="grid gap-4">
+            <div className="space-y-4">
               {highlights.map((highlight, index) => (
-                <Card key={index} className="card-glass hover:card-hover transition-all duration-300">
-                  <CardContent className="p-6 flex items-start space-x-4">
-                    <div className="bg-gradient-primary p-3 rounded-lg">
-                      <highlight.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">{highlight.title}</h4>
-                      <p className="text-foreground-muted text-sm">{highlight.description}</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="card-glass hover:card-hover transition-all duration-500 group">
+                    <CardContent className="p-5 flex items-center space-x-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${highlight.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <highlight.icon className="w-5 h-5 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h4 className="font-syne font-semibold text-foreground">{highlight.title}</h4>
+                        <p className="text-foreground-muted text-sm font-grotesk">{highlight.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Right Content - Skills */}
           <div className="space-y-8">
-            <div className="card-floating p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-gradient-accent mb-8">
-                Skills & Expertise
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="card-glass p-8 rounded-2xl"
+            >
+              <h3 className="text-2xl font-syne font-bold text-gradient-accent mb-8">
+                Core Skills
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {skills.map((skill, index) => (
-                  <div key={index} className="space-y-3">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className="space-y-2"
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <span className="text-2xl">{skill.icon}</span>
-                        <span className="font-medium text-foreground">{skill.name}</span>
+                        <span className="text-xl">{skill.icon}</span>
+                        <span className="font-grotesk font-medium text-foreground">{skill.name}</span>
                       </div>
-                      <span className="text-accent-cyan font-semibold">{skill.level}%</span>
+                      <span className="text-accent-cyan font-mono font-semibold text-sm">{skill.level}%</span>
                     </div>
                     <div className="skill-bar">
-                      <div 
+                      <motion.div
                         className="skill-progress"
-                        style={{ 
-                          width: `${skill.level}%`,
-                          animationDelay: `${index * 0.1}s`
-                        }}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Fun Stats */}
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">20+</div>
-                <div className="text-foreground-muted text-sm">Projects Completed</div>
-              </Card>
-              <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">1+</div>
-                <div className="text-foreground-muted text-sm">Years Experience</div>
-              </Card>
-              <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">15+</div>
-                <div className="text-foreground-muted text-sm">Technologies</div>
-              </Card>
-              <Card className="card-glass p-6 text-center hover:scale-105 transition-all duration-300">
-                <div className="text-3xl font-bold text-gradient mb-2">100%</div>
-                <div className="text-foreground-muted text-sm">Satisfaction</div>
-              </Card>
+              {[
+                { value: 20, suffix: "+", label: "Projects Completed" },
+                { value: 1, suffix: "+", label: "Years Experience" },
+                { value: 15, suffix: "+", label: "Technologies" },
+                { value: 100, suffix: "%", label: "Satisfaction" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <Card className="card-glass p-6 text-center group hover:border-primary/30 transition-all duration-500">
+                    <div className="text-3xl font-syne font-bold text-gradient mb-2">
+                      <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <div className="text-foreground-muted text-sm font-grotesk">{stat.label}</div>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
