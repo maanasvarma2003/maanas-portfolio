@@ -8,19 +8,34 @@ import Projects from "@/components/Projects";
 import Research from "@/components/Research";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CinematicTransition from "@/components/CinematicTransition";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       <Hero />
-      <About />
-      <Skills />
-      <Education />
-      <Experience />
-      <Projects />
-      <Research />
-      <Contact />
+      <CinematicTransition realm="nebula">
+        <About />
+      </CinematicTransition>
+      <CinematicTransition realm="matrix">
+        <Skills />
+      </CinematicTransition>
+      <CinematicTransition realm="aurora">
+        <Education />
+      </CinematicTransition>
+      <CinematicTransition realm="cosmos">
+        <Experience />
+      </CinematicTransition>
+      <CinematicTransition realm="forge">
+        <Projects />
+      </CinematicTransition>
+      <CinematicTransition realm="void">
+        <Research />
+      </CinematicTransition>
+      <CinematicTransition realm="portal">
+        <Contact />
+      </CinematicTransition>
       <Footer />
     </div>
   );

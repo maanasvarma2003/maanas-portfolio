@@ -2,6 +2,8 @@ import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2, Database, FileCo
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedCounter } from "./ui/animated-counter";
+import { SectionScene } from "./3D/SectionScene";
+import { Suspense } from "react";
 
 const Experience = () => {
   const experiences = [
@@ -52,19 +54,24 @@ const Experience = () => {
 
   return (
     <section id="experience" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="stars" color1="#3b82f6" color2="#f97316" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 text-accent-cyan text-sm font-grotesk mb-6">
             <Briefcase className="w-4 h-4" />
-            Professional Journey
+            Realm IV — Forge
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Experience
@@ -75,10 +82,10 @@ const Experience = () => {
           {experiences.map((exp, expIndex) => (
             <motion.div
               key={expIndex}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: expIndex * 0.15 }}
+              transition={{ duration: 0.8, delay: expIndex * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               <Card className="card-glass rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-500">
                 <CardContent className="p-0">

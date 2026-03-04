@@ -1,5 +1,7 @@
 import { FileText, ExternalLink, Calendar, MapPin, Users, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import { SectionScene } from "./3D/SectionScene";
+import { Suspense } from "react";
 
 const Research = () => {
   const publications = [
@@ -17,25 +19,24 @@ const Research = () => {
 
   return (
     <section id="research" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="nebula" color1="#10b981" color2="#06b6d4" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
-      
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-accent-emerald/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-accent-cyan/5 rounded-full blur-[120px]" />
-      </div>
 
       <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-emerald/20 bg-accent-emerald/5 text-accent-emerald text-sm font-grotesk mb-6">
             <FileText className="w-4 h-4" />
-            Research & Publications
+            Realm VI — Discovery
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient-accent tracking-tight">
             Published Research
@@ -49,10 +50,10 @@ const Research = () => {
           {publications.map((pub, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="card-glass rounded-2xl p-8 md:p-10 hover:border-accent-emerald/20 transition-all duration-500"
             >
               <div className="flex flex-wrap items-center gap-3 mb-6">
