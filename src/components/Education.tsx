@@ -1,6 +1,8 @@
 import { GraduationCap, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionScene } from "./3D/SectionScene";
+import { Suspense } from "react";
 
 const Education = () => {
   const educationData = [
@@ -35,19 +37,24 @@ const Education = () => {
 
   return (
     <section id="education" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="waves" color1="#06b6d4" color2="#8b5cf6" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-emerald/20 bg-accent-emerald/5 text-accent-emerald text-sm font-grotesk mb-6">
             <GraduationCap className="w-4 h-4" />
-            Academic Journey
+            Realm III — Knowledge
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Education
@@ -63,10 +70,10 @@ const Education = () => {
             {educationData.map((edu, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.7, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex items-start group"
               >
                 {/* Timeline dot */}

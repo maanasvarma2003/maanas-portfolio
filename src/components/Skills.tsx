@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { Brain, Code, Database, BarChart3, Server, Wrench, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { SectionScene } from "./3D/SectionScene";
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("Programming Languages");
@@ -71,19 +71,24 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="grid" color1="#10b981" color2="#06b6d4" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-purple/20 bg-accent-purple/5 text-accent-purple text-sm font-grotesk mb-6">
             <Brain className="w-4 h-4" />
-            Technical Arsenal
+            Realm II — Arsenal
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Skills & Expertise

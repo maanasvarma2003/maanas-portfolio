@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { SectionScene } from "./3D/SectionScene";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
@@ -34,19 +35,24 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="waves" color1="#ec4899" color2="#8b5cf6" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-pink/20 bg-accent-pink/5 text-accent-pink text-sm font-grotesk mb-6">
             <Mail className="w-4 h-4" />
-            Get in Touch
+            Realm VII — Portal
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Let's Connect
@@ -57,10 +63,10 @@ const Contact = () => {
           {/* Left */}
           <div className="space-y-6">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.7 }}
             >
               <Card className="card-glass p-8 rounded-2xl">
                 <h3 className="text-xl font-syne font-bold text-gradient-secondary mb-6">Contact Info</h3>
@@ -128,10 +134,10 @@ const Contact = () => {
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7 }}
           >
             <Card className="card-glass p-8 rounded-2xl">
               <h3 className="text-xl font-syne font-bold text-gradient mb-6">Send Message</h3>

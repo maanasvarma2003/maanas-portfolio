@@ -1,6 +1,6 @@
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, useRef } from "react";
 import { ArrowDown, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroScene3D } from "./3D/HeroScene3D";
 import { MagneticButton } from "./ui/magnetic-button";
@@ -8,7 +8,17 @@ import { MagneticButton } from "./ui/magnetic-button";
 const Hero = () => {
   const [text, setText] = useState("");
   const fullText = "Data Scientist & AI/ML Engineer";
-  
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.9]);
+
   useEffect(() => {
     let currentIndex = 0;
     const intervalId = setInterval(() => {
@@ -26,12 +36,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* 3D Background */}
       <Suspense fallback={null}>
         <HeroScene3D />
       </Suspense>
-      
+
+      {/* Cinematic vignette */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)"
+      }} />
+
       {/* Mesh gradient background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-accent-purple/8 rounded-full blur-[120px] animate-float"></div>
@@ -39,19 +54,27 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent-cyan/5 rounded-full blur-[100px] animate-float" style={{ animationDelay: "4s" }}></div>
       </div>
 
+      {/* Scan lines */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{
+        backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(var(--foreground) / 0.03) 2px, hsl(var(--foreground) / 0.03) 4px)`,
+      }} />
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]" style={{
         backgroundImage: `linear-gradient(hsl(var(--foreground) / 0.1) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground) / 0.1) 1px, transparent 1px)`,
         backgroundSize: '60px 60px'
       }}></div>
 
-      <div className="container-width section-padding text-center relative z-10">
+      <motion.div
+        style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
+        className="container-width section-padding text-center relative z-10"
+      >
         <div className="max-w-5xl mx-auto space-y-10">
-          {/* Status badge */}
+          {/* Realm title */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
@@ -59,11 +82,11 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          {/* Name */}
+          {/* Name with cinematic reveal */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, y: 60, filter: "blur(20px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-6xl md:text-8xl lg:text-9xl font-syne font-extrabold tracking-tighter leading-[0.9]"
           >
             <span className="text-foreground">Maanas</span>
@@ -72,7 +95,7 @@ const Hero = () => {
               Varma
               <motion.span 
                 className="inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-accent-orange via-accent-pink to-accent-purple rounded-2xl shadow-glow"
-                animate={{ rotate: [0, 5, -5, 0] }}
+                animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Sparkles className="w-7 h-7 md:w-10 md:h-10 text-primary-foreground" />
@@ -97,9 +120,9 @@ const Hero = () => {
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 1 }}
             className="text-lg md:text-xl text-foreground-muted max-w-2xl mx-auto leading-relaxed font-grotesk"
           >
             Crafting intelligent systems that transform raw data into 
@@ -109,9 +132,9 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
             <MagneticButton>
@@ -136,7 +159,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
+            transition={{ delay: 1.8 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           >
             <motion.div
@@ -147,14 +170,14 @@ const Hero = () => {
                 variant="ghost"
                 size="icon"
                 onClick={scrollToAbout}
-                className="hover:scale-110 transition-all duration-300 rounded-full border border-card-border"
+                className="hover:scale-110 transition-all duration-300 rounded-full border border-card-border backdrop-blur-sm"
               >
                 <ArrowDown className="w-5 h-5 text-accent-cyan" />
               </Button>
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

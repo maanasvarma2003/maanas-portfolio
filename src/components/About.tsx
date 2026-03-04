@@ -1,11 +1,17 @@
 import { Download, Award, Target, Heart } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedCounter } from "./ui/animated-counter";
+import { SectionScene } from "./3D/SectionScene";
 import maanasPhoto from "@/assets/maanas.jpg";
+import { useRef, Suspense } from "react";
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
   const skills = [
     { name: "Python", level: 95, icon: "🐍" },
     { name: "Machine Learning", level: 90, icon: "🤖" },
@@ -22,21 +28,25 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding relative overflow-hidden">
-      {/* Section divider */}
+    <section ref={sectionRef} id="about" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="nebula" color1="#8b5cf6" color2="#06b6d4" />
+      </Suspense>
+      
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-blue/20 bg-accent-blue/5 text-accent-blue text-sm font-grotesk mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
-            About Me
+            Realm I — Origin
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Who I Am
@@ -48,22 +58,22 @@ const About = () => {
           <div className="space-y-8">
             {/* Profile Photo */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
+              whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               className="flex justify-center lg:justify-start"
             >
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-accent-cyan via-accent-purple to-accent-pink rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
-                <div className="relative w-52 h-52 rounded-3xl overflow-hidden border-2 border-card-border shadow-2xl">
+                <motion.div style={{ y: parallaxY }} className="relative w-52 h-52 rounded-3xl overflow-hidden border-2 border-card-border shadow-2xl">
                   <img 
                     src={maanasPhoto} 
                     alt="Maanas Varma - Data Scientist" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 

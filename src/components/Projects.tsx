@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ProjectCard3D } from "./3D/ProjectCard3D";
+import { SectionScene } from "./3D/SectionScene";
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
@@ -59,19 +60,24 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section-padding relative overflow-hidden">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <SectionScene variant="stars" color1="#f97316" color2="#ec4899" />
+      </Suspense>
+
       <div className="section-divider absolute top-0 left-0 right-0" />
       
-      <div className="container-width">
+      <div className="container-width relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-orange/20 bg-accent-orange/5 text-accent-orange text-sm font-grotesk mb-6">
             <Folder className="w-4 h-4" />
-            Portfolio
+            Realm V — Creations
           </span>
           <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
             Projects
@@ -121,10 +127,10 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (index % 6) * 0.08 }}
+                transition={{ duration: 0.5, delay: (index % 6) * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Card className="card-glass rounded-2xl overflow-hidden group h-full hover:border-primary/20 transition-all duration-500">
                   <CardContent className="p-0 h-full flex flex-col">
