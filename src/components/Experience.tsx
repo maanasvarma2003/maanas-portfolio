@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2, Database, FileCode } from "lucide-react";
+import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2, Database, FileCode, Server, Network, TestTube } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedCounter } from "./ui/animated-counter";
