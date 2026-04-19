@@ -95,7 +95,7 @@ const Experience = () => {
             <Briefcase className="w-4 h-4" />
             Realm IV — Forge
           </span>
-          <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-syne font-bold text-chromatic tracking-tight">
             Experience
           </h2>
         </motion.div>
