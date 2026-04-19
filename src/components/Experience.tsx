@@ -109,7 +109,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: expIndex * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Card className="card-glass rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-500">
+              <Card className="card-glass card-orbit rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-500">
                 <CardContent className="p-0">
                   <div className="flex flex-col lg:flex-row">
                     <div className={`lg:w-1.5 w-full h-1.5 lg:h-auto bg-gradient-to-r lg:bg-gradient-to-b ${exp.gradient}`}></div>
