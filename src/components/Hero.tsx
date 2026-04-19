@@ -7,7 +7,7 @@ import { MagneticButton } from "./ui/magnetic-button";
 
 const Hero = () => {
   const [text, setText] = useState("");
-  const fullText = "Data Scientist & AI/ML Engineer";
+  const fullText = "Aspiring AI/ML Engineer & Data Scientist";
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
