@@ -9,6 +9,28 @@ const Experience = () => {
   const experiences = [
     {
       title: "Software Engineering Job Simulation",
+      company: "J.P. Morgan Chase & Co. (via Forage)",
+      location: "Remote",
+      period: "April 2026",
+      type: "Job Simulation",
+      description: "Completed J.P. Morgan Chase & Co.'s Software Engineering Job Simulation on Forage, building a Kafka-driven Spring Boot microservice for high-volume transaction processing with full database integration and external API workflows.",
+      achievements: [
+        "Integrated Kafka into a Spring Boot microservice to consume and deserialize high-volume transaction messages using a configurable topic and embedded Kafka test framework",
+        "Implemented transaction validation and persistence logic with Spring Data JPA and an H2 SQL database, including entity modeling and balance updates across relational User records",
+        "Connected the service to an external REST Incentive API using RestTemplate, processing incentive responses and incorporating them into transactional workflows",
+        "Developed a REST endpoint for querying user balances, returning JSON responses through a Spring controller while maintaining clean architectural boundaries",
+        "Verified system behavior using Maven test suites and debugger-driven inspection, ensuring reliability across message ingestion, database operations, and external API interactions"
+      ],
+      technologies: ["Java", "Spring Boot", "Apache Kafka", "Spring Data JPA", "H2 Database", "RestTemplate", "Maven", "REST APIs", "Microservices"],
+      responsibilities: [
+        { icon: Server, title: "Microservice Architecture", description: "Building Kafka-driven Spring Boot services" },
+        { icon: Network, title: "API Integration", description: "Connecting REST APIs with RestTemplate workflows" },
+        { icon: TestTube, title: "Testing & Validation", description: "Maven test suites and embedded Kafka frameworks" }
+      ],
+      gradient: "from-accent-blue to-accent-purple"
+    },
+    {
+      title: "Software Engineering Job Simulation",
       company: "Wells Fargo (via Forage)",
       location: "Remote",
       period: "March 2026",
