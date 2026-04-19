@@ -7,7 +7,7 @@ import { MagneticButton } from "./ui/magnetic-button";
 
 const Hero = () => {
   const [text, setText] = useState("");
-  const fullText = "Data Scientist & AI/ML Engineer";
+  const fullText = "Aspiring AI/ML Engineer & Data Scientist";
   const ref = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -147,7 +147,7 @@ const Hero = () => {
             </MagneticButton>
             <MagneticButton>
               <Button 
-                onClick={() => window.open("https://drive.google.com/file/d/1QyVcV9hfj-MbGhXhG_UDZEu3VlD_v0C8/view?usp=sharing", "_blank")}
+                onClick={() => window.open("https://drive.google.com/file/d/1Y1Iq3SDdKsapKTsyg4MLaMbu6YxuvVkv/view?usp=sharing", "_blank")}
                 className="btn-ghost px-10 py-6 text-lg rounded-2xl font-grotesk font-semibold"
               >
                 Download Resume
