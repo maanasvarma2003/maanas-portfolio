@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2, Database, FileCode } from "lucide-react";
+import { Briefcase, Calendar, MapPin, TrendingUp, Users, Code2, Database, FileCode, Server, Network, TestTube } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedCounter } from "./ui/animated-counter";
@@ -7,6 +7,28 @@ import { Suspense } from "react";
 
 const Experience = () => {
   const experiences = [
+    {
+      title: "Software Engineering Job Simulation",
+      company: "J.P. Morgan Chase & Co. (via Forage)",
+      location: "Remote",
+      period: "April 2026",
+      type: "Job Simulation",
+      description: "Completed J.P. Morgan Chase & Co.'s Software Engineering Job Simulation on Forage, building a Kafka-driven Spring Boot microservice for high-volume transaction processing with full database integration and external API workflows.",
+      achievements: [
+        "Integrated Kafka into a Spring Boot microservice to consume and deserialize high-volume transaction messages using a configurable topic and embedded Kafka test framework",
+        "Implemented transaction validation and persistence logic with Spring Data JPA and an H2 SQL database, including entity modeling and balance updates across relational User records",
+        "Connected the service to an external REST Incentive API using RestTemplate, processing incentive responses and incorporating them into transactional workflows",
+        "Developed a REST endpoint for querying user balances, returning JSON responses through a Spring controller while maintaining clean architectural boundaries",
+        "Verified system behavior using Maven test suites and debugger-driven inspection, ensuring reliability across message ingestion, database operations, and external API interactions"
+      ],
+      technologies: ["Java", "Spring Boot", "Apache Kafka", "Spring Data JPA", "H2 Database", "RestTemplate", "Maven", "REST APIs", "Microservices"],
+      responsibilities: [
+        { icon: Server, title: "Microservice Architecture", description: "Building Kafka-driven Spring Boot services" },
+        { icon: Network, title: "API Integration", description: "Connecting REST APIs with RestTemplate workflows" },
+        { icon: TestTube, title: "Testing & Validation", description: "Maven test suites and embedded Kafka frameworks" }
+      ],
+      gradient: "from-accent-blue to-accent-purple"
+    },
     {
       title: "Software Engineering Job Simulation",
       company: "Wells Fargo (via Forage)",
@@ -73,7 +95,7 @@ const Experience = () => {
             <Briefcase className="w-4 h-4" />
             Realm IV — Forge
           </span>
-          <h2 className="text-4xl md:text-6xl font-syne font-bold text-gradient tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-syne font-bold text-chromatic tracking-tight">
             Experience
           </h2>
         </motion.div>
@@ -87,7 +109,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: expIndex * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Card className="card-glass rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-500">
+              <Card className="card-glass card-orbit rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-500">
                 <CardContent className="p-0">
                   <div className="flex flex-col lg:flex-row">
                     <div className={`lg:w-1.5 w-full h-1.5 lg:h-auto bg-gradient-to-r lg:bg-gradient-to-b ${exp.gradient}`}></div>
@@ -174,7 +196,7 @@ const Experience = () => {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-6 mt-16">
           {[
-            { value: 2, label: "Experiences" },
+            { value: 3, label: "Experiences" },
             { value: 20, suffix: "+", label: "Projects Completed" },
             { value: 25, suffix: "%", label: "Performance Boost" },
           ].map((stat, i) => (
