@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain, FileText } from "lucide-react";
+import { Menu, X, Download, User, GraduationCap, Briefcase, Folder, Mail, Brain, FileText, Award } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import leoSymbol from "@/assets/leo-symbol.png";
@@ -14,7 +14,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
       
       // Track active section
-      const sections = ["about", "skills", "education", "experience", "projects", "research", "contact"];
+      const sections = ["about", "skills", "education", "experience", "certifications", "projects", "research", "contact"];
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && window.scrollY >= el.offsetTop - 200) {
@@ -32,6 +32,7 @@ const Navigation = () => {
     { name: "Skills", href: "#skills", icon: Brain, color: "text-accent-purple" },
     { name: "Education", href: "#education", icon: GraduationCap, color: "text-accent-emerald" },
     { name: "Experience", href: "#experience", icon: Briefcase, color: "text-accent-cyan" },
+    { name: "Certifications", href: "#certifications", icon: Award, color: "text-accent-purple" },
     { name: "Projects", href: "#projects", icon: Folder, color: "text-accent-orange" },
     { name: "Research", href: "#research", icon: FileText, color: "text-accent-emerald" },
     { name: "Contact", href: "#contact", icon: Mail, color: "text-accent-pink" },

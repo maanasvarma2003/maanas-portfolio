@@ -8,49 +8,6 @@ import { Suspense } from "react";
 const Experience = () => {
   const experiences = [
     {
-      title: "Software Engineering Job Simulation",
-      company: "J.P. Morgan Chase & Co. (via Forage)",
-      location: "Remote",
-      period: "April 2026",
-      type: "Job Simulation",
-      description: "Completed J.P. Morgan Chase & Co.'s Software Engineering Job Simulation on Forage, building a Kafka-driven Spring Boot microservice for high-volume transaction processing with full database integration and external API workflows.",
-      achievements: [
-        "Integrated Kafka into a Spring Boot microservice to consume and deserialize high-volume transaction messages using a configurable topic and embedded Kafka test framework",
-        "Implemented transaction validation and persistence logic with Spring Data JPA and an H2 SQL database, including entity modeling and balance updates across relational User records",
-        "Connected the service to an external REST Incentive API using RestTemplate, processing incentive responses and incorporating them into transactional workflows",
-        "Developed a REST endpoint for querying user balances, returning JSON responses through a Spring controller while maintaining clean architectural boundaries",
-        "Verified system behavior using Maven test suites and debugger-driven inspection, ensuring reliability across message ingestion, database operations, and external API interactions"
-      ],
-      technologies: ["Java", "Spring Boot", "Apache Kafka", "Spring Data JPA", "H2 Database", "RestTemplate", "Maven", "REST APIs", "Microservices"],
-      responsibilities: [
-        { icon: Server, title: "Microservice Architecture", description: "Building Kafka-driven Spring Boot services" },
-        { icon: Network, title: "API Integration", description: "Connecting REST APIs with RestTemplate workflows" },
-        { icon: TestTube, title: "Testing & Validation", description: "Maven test suites and embedded Kafka frameworks" }
-      ],
-      gradient: "from-accent-blue to-accent-purple"
-    },
-    {
-      title: "Software Engineering Job Simulation",
-      company: "Wells Fargo (via Forage)",
-      location: "Remote",
-      period: "March 2026",
-      type: "Job Simulation",
-      description: "Completed Wells Fargo's Software Engineering Job Simulation on Forage, focusing on financial portfolio management systems, data modeling, and ERD implementation.",
-      achievements: [
-        "Understood relevant requirements for building a system to manage financial portfolios",
-        "Figured out what data the system needed to keep track of",
-        "Drafted a visual representation of the data as an entity relationship diagram (ERD)",
-        "Used the IntelliJ developer application to implement the ERD and published it to GitHub"
-      ],
-      technologies: ["Java", "IntelliJ IDEA", "ERD Design", "Data Modeling", "Git", "GitHub", "Financial Systems"],
-      responsibilities: [
-        { icon: Database, title: "Data Modeling", description: "Designing ERDs for financial portfolio management" },
-        { icon: FileCode, title: "System Implementation", description: "Implementing data models using IntelliJ and GitHub" },
-        { icon: TrendingUp, title: "Requirements Analysis", description: "Translating business requirements for financial systems" }
-      ],
-      gradient: "from-accent-orange to-accent-pink"
-    },
-    {
       title: "Frontend Developer Intern",
       company: "Hexapro Technologies",
       location: "Bengaluru",
@@ -196,7 +153,7 @@ const Experience = () => {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-6 mt-16">
           {[
-            { value: 3, label: "Experiences" },
+            { value: 1, label: "Internship" },
             { value: 20, suffix: "+", label: "Projects Completed" },
             { value: 25, suffix: "%", label: "Performance Boost" },
           ].map((stat, i) => (
