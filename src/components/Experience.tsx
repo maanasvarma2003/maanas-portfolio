@@ -153,7 +153,7 @@ const Experience = () => {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-6 mt-16">
           {[
-            { value: 3, label: "Experiences" },
+            { value: 1, label: "Internship" },
             { value: 20, suffix: "+", label: "Projects Completed" },
             { value: 25, suffix: "%", label: "Performance Boost" },
           ].map((stat, i) => (
